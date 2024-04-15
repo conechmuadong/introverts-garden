@@ -6,10 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 
@@ -35,45 +32,6 @@ public class FieldListAdapter extends ArrayAdapter<Field> {
         this.listener = listener;
     }
 
-    private void showPopupMenu(View view, final Field field) {
-        PopupMenu popupMenu = new PopupMenu(this.getContext(), view);
-        popupMenu.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
-
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.adjust) {
-                    // Gửi thông tin về cánh đồng được chọn tới Fragment chỉnh sửa thông tin (CustomizedFragment)
-                    Log.v("onFieldSelected", "clicked adjust item");
-                    if (listener != null) {
-                        listener.onFieldSelected(field, "adjust");
-                        Log.v("onFieldSelected", field.getName());
-                    }
-                } else if (item.getItemId() == R.id.status) {
-                    // Gửi thông tin về cánh đồng được chọn tới Fragment chứa thông tin chi tiết về cánh đồng (MeasuredDataFragment)
-                    Log.v("onFieldSelected", "clicked status item");
-                    if (listener != null) {
-                        listener.onFieldSelected(field, "status");
-                        Log.v("onFieldSelected", field.getName());
-                    }
-                } else if (item.getItemId() == R.id.delete) {
-                    // xử lý tùy chọn 3 cho selectedField
-                    Log.v("onFieldSelected", "clicked delete item");
-                    if (listener != null) {
-                        listener.onFieldSelected(field, "delete");
-                        Log.v("onFieldSelected", field.getName());
-                    }
-                }
-
-                // Trả về true để cho biết sự kiện đã được xử lý
-                return true;
-            }
-        });
-
-        popupMenu.show();
-    }
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
@@ -83,12 +41,44 @@ public class FieldListAdapter extends ArrayAdapter<Field> {
 
         TextView fieldName = (TextView) view.findViewById(R.id.field_name);
         fieldName.setText(field.getName());
-
+        LinearLayout viewButton = (LinearLayout) view.findViewById(R.id.view);
+        LinearLayout adjustButton = (LinearLayout) view.findViewById(R.id.edit);
+        LinearLayout deleteButton = (LinearLayout) view.findViewById(R.id.delete);
+        viewButton.setVisibility(View.GONE);
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onFieldSelected(field, "status");
+            }
+        });
+        adjustButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onFieldSelected(field, "adjust");
+            }
+        });
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onFieldSelected(field, "delete");
+            }
+        });
+        adjustButton.setVisibility(View.GONE);
+        deleteButton.setVisibility(View.GONE);
         ImageView imageView = (ImageView) view.findViewById(R.id.menu_button);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPopupMenu(view, field);
+                if (adjustButton.getVisibility() == View.VISIBLE) {
+                    adjustButton.setVisibility(View.GONE);
+                    deleteButton.setVisibility(View.GONE);
+                    viewButton.setVisibility(View.GONE);
+                }
+                else {
+                    adjustButton.setVisibility(View.VISIBLE);
+                    deleteButton.setVisibility(View.VISIBLE);
+                    viewButton.setVisibility(View.VISIBLE);
+                }
             }
         });
 

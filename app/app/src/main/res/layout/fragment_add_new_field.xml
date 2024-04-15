@@ -1,46 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.AddNewFieldFragment"
-    android:padding="50dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context=".fragments.AddNewFieldFragment"
+              android:orientation="horizontal">
+    <RelativeLayout
+            android:id="@+id/new_field_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="horizontal"
+            android:background="@drawable/topplant"
+            >
 
     <TextView
-        android:id="@+id/newFieldTxtVw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/insert_new_name"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/newFieldEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/new_field_title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="30sp"
+            android:paddingLeft="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/bold_montserrat"
+            android:text="@string/new_field"
+            />
+    </RelativeLayout>
 
+    <TextView
+        android:id="@+id/new_field_name_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="18sp"
+        android:paddingLeft="16dp"
+        android:layout_below="@id/new_field_title_layout"
+        android:layout_marginStart="20dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/bold_montserrat"
+        android:text="@string/hint_new_field_name"
+        />
     <EditText
         android:id="@+id/newFieldEditText"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@id/new_field_name_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:hint="@string/hint_name"
-        android:inputType="text"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="56dp"
+        android:background="@drawable/edittext"
+        android:textColor="#000000"
+        android:hint="@string/hint_new_field_name"
+        android:fontFamily="@font/montserrat"
+        android:singleLine="true"
+        android:padding="10dp"
+            />
 
     <Button
         android:id="@+id/doneBtn"
         android:layout_marginBottom="20dp"
+        android:layout_below="@id/newFieldEditText"
+        android:layout_centerHorizontal="true"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:fontFamily="@font/bold_montserrat"
         app:layout_constraintTop_toBottomOf="@+id/newFieldEditText"
         android:text="@string/done"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

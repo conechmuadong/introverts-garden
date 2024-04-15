@@ -4,6 +4,5 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
     </style>
-
     <style name="Theme.IntrovertGarden" parent="Base.Theme.IntrovertGarden" />
 </resources>

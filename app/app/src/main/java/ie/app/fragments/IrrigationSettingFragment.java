@@ -200,7 +200,7 @@ public class IrrigationSettingFragment extends BaseFragment {
                     Date selectedDate = selectedCalendar.getTime(); // Lấy ra đối tượng Date tương ứng với giá trị được chọn
 
 
-                    @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");
+                    @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                     String strTime = formatter.format(selectedDate);
                     selectedStartTime = strTime;
 

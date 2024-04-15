@@ -157,6 +157,7 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
                 Log.v("GetAllTask", user.toString());
                 return user.getFields();
             } catch (Exception e) {
+                System.out.println("ERROR : " + e);
                 Log.v("ASYNC", "ERROR : " + e);
                 e.printStackTrace();
             }

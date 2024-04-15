@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#50D890</color>
+    <color name="colorPrimary">#2CAB69</color>
     <color name="disable">#A7D4BC</color>
-    <color name="background">#EFFFFB</color>
+    <color name="background">#EDF4ED</color>
+    <color name="background_homepage">#2CAB69</color>
 </resources>

@@ -10,10 +10,15 @@
     <string name="customized_fragment_label">Điều chỉnh</string>
     <string name="phaseList_fragment_label">Các giai đoạn</string>
 
-    <string name="add">Add</string>
-    <string name="next">Next</string>
+    <string name="Logo">Logo</string>
+    <string name="add">New</string>
+    <string name="getting_started">Start caring your garden</string>
+    <string name="homepage_sign_in">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_up_mark_question">Don\'t have an account?</string>
     <string name="project_name">Introverts\' Garden</string>
-    <string name="introduction">Introvert\' Garden is a smart agriculture systems project developed by The Introverts, a group of 5 students from VNU - UET participated in the IoT Challenge contest organized by FPT Software.</string>
+    <string name="introduction">Start caring your garden with our smart solutions.</string>
     <string name="start_time">Thời gian bắt đầu tưới</string>
     <string name="end_time">Thời gian kết thúc tưới</string>
     <string name="amount_water">Lượng nước tưới</string>
@@ -38,17 +43,30 @@
     <string name="number_holes_unit">lỗ</string>
     <string name="humidity">Phần trăm độ ẩm </string>
 
-    <string name="delete">Xóa</string>
+    <string name="delete">Delete</string>
     <string name="adjust">Điều chỉnh</string>
     <string name="status">Tình trạng</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_name">Tên</string>
     <string name="insert_new_name">Nhập tên cánh đồng:</string>
-    <string name="done">Xong</string>
+    <string name="done">Done</string>
     <string name="cant_blank">Không được để trống</string>
     <string name="update">Cập nhật</string>
     <string name="date_insert">YYYY-MM-YY</string>
     <string name="start_date_insert">Nhập ngày bắt đầu</string>
     <string name="end_date_insert">Nhập ngày kết thúc</string>
     <string name="humid_insert">Nhập độ ẩm</string>
+    <string name="sign_in_mark_account">Email Address</string>
+    <string name="sign_in_acc_eg">extroverts@gmail.com</string>
+    <string name="sign_in_password">Password</string>
+    <string name="sign_in_password_eg">Your Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or">Or</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="field_list_title">Your Gardens</string>
+    <string name="new_field">Add a garden</string>
+    <string name="new_field_name">New garden name</string>
+    <string name="hint_new_field_name">Name your garden</string>
+    <string name="view">View</string>
+    <string name="edit">Adjust\n</string>
 </resources>
