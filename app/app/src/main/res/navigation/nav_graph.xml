@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomepageFragment">
+
+    <fragment
+        android:id="@+id/HomepageFragment"
+        android:name="ie.app.fragments.HomepageFragment"
+        android:label="@string/homepage_fragment_label"
+        tools:layout="@layout/fragment_homepage">
+
+        <action
+            android:id="@+id/action_HomepageFragment_to_FieldlistFragment"
+            app:destination="@id/FieldlistFragment"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FieldlistFragment"
+        android:name="ie.app.fragments.FieldlistFragment"
+        android:label="@string/fieldlist_fragment_label"
+        tools:layout="@layout/fragment_list_field">
+
+        <action
+            android:id="@+id/action_FieldlistFragment_to_MeasuredDataFragment"
+            app:destination="@id/MeasuredDataFragment"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+
+        <action
+            android:id="@+id/action_FieldlistFragment_to_CustomizedFragment"
+            app:destination="@id/CustomizedFragment"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+
+        <action
+            android:id="@id/action_FieldlistFragment_to_AddNewFieldFragment"
+            app:destination="@+id/AddNewFieldFragment"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddNewFieldFragment"
+        android:name="ie.app.fragments.AddNewFieldFragment"
+        android:label="Thêm cánh đồng"
+        tools:layout="@layout/fragment_add_new_field">
+    </fragment>
+
+    <fragment
+        android:id="@+id/CustomizedFragment"
+        android:name="ie.app.fragments.CustomizedFragment"
+        android:label="@string/customized_fragment_label"
+        tools:layout="@layout/fragment_customized">
+        <action
+            android:id="@+id/action_CustomizedFragment_to_listPhase"
+            app:destination="@id/listPhase"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listPhase"
+        android:name="ie.app.fragments.PhaseListFragment"
+        android:label="@string/phaseList_fragment_label"
+        tools:layout="@layout/fragment_phase_list">
+        <action
+            android:id="@+id/action_listPhase_to_addNewPhaseFragment"
+            app:destination="@id/addNewPhaseFragment"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addNewPhaseFragment"
+        android:name="ie.app.fragments.AddNewPhaseFragment"
+        android:label="Thêm giai đoạn"
+        tools:layout="@layout/fragment_add_new_phase"/>
+
+    <fragment
+        android:id="@+id/MeasuredDataFragment"
+        android:name="ie.app.fragments.MeasuredDataFragment"
+        android:label="@string/measureddata_fragment_label"
+        tools:layout="@layout/fragment_measured_data">
+
+
+        <action
+            android:id="@+id/action_MeasuredDataFragment_to_IrrigationFragment"
+            app:destination="@id/IrrigationSettingFragment"
+            app:enterAnim="@anim/to_right_in"
+            app:exitAnim="@anim/to_right_out"
+            app:popEnterAnim="@anim/to_left_in"
+            app:popExitAnim="@anim/to_left_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/IrrigationSettingFragment"
+        android:name="ie.app.fragments.IrrigationSettingFragment"
+        android:label="@string/irrigation_fragment_label"
+        tools:layout="@layout/fragment_irrigation_setting">
+
+    </fragment>
+
+</navigation>

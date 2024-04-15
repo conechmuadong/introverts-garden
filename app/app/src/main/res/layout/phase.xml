@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20sp">
+
+    <Button
+        android:id="@+id/stageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="6dp"
+        android:text="Item"
+        android:textSize="18sp"
+        android:clickable="false"/>
+
+    <LinearLayout
+        android:id="@+id/phaseHumidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stageName"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Độ ẩm"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:id="@+id/stageEditHumid"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="0.0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/phaseStartdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phaseHumidity"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Ngày bắt đầu"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:id="@+id/stageStartDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/date_insert" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/phaseEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phaseStartdate"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/endDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Ngày kết thúc"
+            android:textSize="18sp" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:id="@+id/stageEndDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/date_insert" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phaseEndDate"/>
+
+</RelativeLayout>

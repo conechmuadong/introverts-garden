@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".fragments.CustomizedFragment"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/fieldName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:background="@drawable/fieldname_background"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/area"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="@string/area" />
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/areaEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:imeOptions="actionDone"
+                android:hint="00.00" />
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/area_unit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="@string/area_unit" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/numberHoles"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="@string/number_holes" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/numberHolesEditText"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:hint="00" />
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/numberHolesUnit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="@string/number_holes_unit" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/irrigation_background"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/distance_holes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/distance_holes"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/distanceHoleEditText"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:hint="00.00" />
+
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/distance_unit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_unit" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/distance_row"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="@string/distance_row" />
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/distanceRowEditText"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:hint="00" />
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/DistanceRowUnit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_unit" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/drip_rate"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="@string/drip_rate" />
+
+            <Space
+                android:layout_width="45dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/dripRateEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:hint="00" />
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/dripRateUnit"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:text="@string/drip_unit" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/scale_rain"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="@string/rain" />
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/scaleRainEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:hint="00" />
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/rain_unit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                    android:text="@string/rain_unit" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/ferLevel"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="@string/fer_level" />
+
+            <Space
+                android:layout_width="45dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/ferLevelEditText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:hint="00" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+
+        <LinearLayout
+            android:id="@+id/humidityView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/irrigation_background" >
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:text="@string/humidity" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/humidityValue"
+                android:layout_width="90dp"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:textSize="18dp"/>
+            <Space
+                android:layout_width="2dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/percent"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:text="@string/percent_unit" />
+            <Space
+                android:layout_width="45dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="›"
+                android:textSize="36sp"
+                android:textColor="#004d00"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Cập nhật" />
+
+    </LinearLayout>
+
+</ScrollView>

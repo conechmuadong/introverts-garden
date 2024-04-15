@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">IntrovertGarden</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="homepage_fragment_label">Trang chủ</string>
+    <string name="fieldlist_fragment_label">Danh sách cánh đồng</string>
+    <string name="measureddata_fragment_label">Tình trạng</string>
+    <string name="irrigation_fragment_label">Cài đặt tưới</string>
+    <string name="customized_fragment_label">Điều chỉnh</string>
+    <string name="phaseList_fragment_label">Các giai đoạn</string>
+
+    <string name="add">Add</string>
+    <string name="next">Next</string>
+    <string name="project_name">Introverts\' Garden</string>
+    <string name="introduction">Introvert\' Garden is a smart agriculture systems project developed by The Introverts, a group of 5 students from VNU - UET participated in the IoT Challenge contest organized by FPT Software.</string>
+    <string name="start_time">Thời gian bắt đầu tưới</string>
+    <string name="end_time">Thời gian kết thúc tưới</string>
+    <string name="amount_water">Lượng nước tưới</string>
+    <string name="water_unit">l/m²</string>
+
+    <string name="waterButton">Tưới cây!</string>
+    <string name="manualButton">Manual</string>
+    <string name="autoButton">Auto</string>
+
+    <string name="area">Diện tích:</string>
+    <string name="area_unit">m²</string>
+    <string name="drip_unit">ml/s</string>
+    <string name="rain_unit">%</string>
+    <string name="distance_unit">m</string>
+    <string name="percent_unit">%</string>
+    <string name="number_holes">Tổng số lỗ tưới:</string>
+    <string name="distance_holes">Khoảng cách giữa hai lỗ:</string>
+    <string name="distance_row">Khoảng cách giữa hai hàng:</string>
+    <string name="drip_rate">Tốc độ nhỏ giọt: </string>
+    <string name="fer_level">Cấp độ bón phân: </string>
+    <string name="rain">Tỉ lệ mưa: </string>
+    <string name="number_holes_unit">lỗ</string>
+    <string name="humidity">Phần trăm độ ẩm </string>
+
+    <string name="delete">Xóa</string>
+    <string name="adjust">Điều chỉnh</string>
+    <string name="status">Tình trạng</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Tên</string>
+    <string name="insert_new_name">Nhập tên cánh đồng:</string>
+    <string name="done">Xong</string>
+    <string name="cant_blank">Không được để trống</string>
+    <string name="update">Cập nhật</string>
+    <string name="date_insert">YYYY-MM-YY</string>
+    <string name="start_date_insert">Nhập ngày bắt đầu</string>
+    <string name="end_date_insert">Nhập ngày kết thúc</string>
+    <string name="humid_insert">Nhập độ ẩm</string>
+</resources>
