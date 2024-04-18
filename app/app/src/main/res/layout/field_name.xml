@@ -2,34 +2,51 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/fieldname_background">
+    <RelativeLayout
+            android:id="@+id/menu_button_container"
+            android:layout_width="match_parent"
+            android:background="@drawable/avatar_background"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="56dp">
 
-    <TextView
-        android:id="@+id/field_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bld"
-        android:textSize="18sp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="26dp"
-        />
+        <TextView
+                android:id="@+id/field_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bld"
+                android:textSize="18sp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="17dp"
+                android:textColor="@color/black"
+                />
 
-    <ImageView
-        android:id="@+id/menu_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_menu"
-        android:layout_marginEnd="20dp"/>
+        <ImageView
+            android:id="@+id/menu_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/select_button"
+            android:layout_marginEnd="10dp"/>
+        <ImageView
+                android:id="@+id/unmenu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/unselect_button"
+                android:layout_marginEnd="10dp"/>
+    </RelativeLayout>
     <LinearLayout
             android:id="@+id/view"
             android:layout_width="133dp"
             android:layout_height="40dp"
-            android:layout_below="@id/menu_button"
+            android:layout_below="@id/menu_button_container"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
             android:background="@drawable/btn_green"
@@ -47,7 +64,7 @@
             android:id="@+id/edit"
             android:layout_below="@id/view"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
             android:background="@drawable/btn_green"
@@ -69,7 +86,7 @@
             android:id="@+id/delete"
             android:layout_below="@id/edit"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"

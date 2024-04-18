@@ -3,21 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/HomepageFragment">
+    app:startDestination="@id/WelcomeFragment">
 
     <fragment
-        android:id="@+id/HomepageFragment"
+        android:id="@+id/WelcomeFragment"
         android:name="ie.app.fragments.WelcomePageFragment"
         android:label="@string/homepage_fragment_label"
         tools:layout="@layout/fragment_welcome_page">
-
         <action
-            android:id="@+id/action_HomepageFragment_to_FieldlistFragment"
-            app:destination="@id/FieldlistFragment"
-            app:enterAnim="@anim/to_right_in"
-            app:exitAnim="@anim/to_right_out"
-            app:popEnterAnim="@anim/to_left_in"
-            app:popExitAnim="@anim/to_left_out" />
+                android:id="@+id/action_WelcomeFragment_to_homepageFragment"
+                app:destination="@id/homepageFragment"
+                app:enterAnim="@anim/to_right_in"
+                app:exitAnim="@anim/to_right_out"
+                app:popEnterAnim="@anim/to_left_in"
+                app:popExitAnim="@anim/to_left_out"/>
     </fragment>
 
     <fragment
@@ -115,6 +114,25 @@
         android:label="@string/irrigation_fragment_label"
         tools:layout="@layout/fragment_irrigation_setting">
 
+    </fragment>
+    <fragment
+            android:id="@+id/homepageFragment"
+            android:name="ie.app.fragments.HomepageFragment"
+            android:label="HomepageFragment">
+        <action
+                android:id="@+id/action_homepageFragment_to_FieldlistFragment"
+                app:destination="@id/FieldlistFragment"
+                app:popExitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_right_out"
+                app:enterAnim="@anim/to_right_in"/>
+        <action
+                android:id="@+id/action_homepageFragment_to_MeasuredDataFragment"
+                app:destination="@id/MeasuredDataFragment"
+                app:enterAnim="@anim/to_right_in"
+                app:exitAnim="@anim/to_right_out"
+                app:popEnterAnim="@anim/to_left_in"
+                app:popExitAnim="@anim/to_left_out"/>
     </fragment>
 
 </navigation>

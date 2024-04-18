@@ -34,7 +34,7 @@ public class WelcomePageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(WelcomePageFragment.this)
-                        .navigate(R.id.action_HomepageFragment_to_FieldlistFragment);
+                        .navigate(R.id.action_WelcomeFragment_to_homepageFragment);
             }
         });
     }
