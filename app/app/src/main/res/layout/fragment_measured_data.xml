@@ -1,146 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".fragments.MeasuredDataFragment"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <TextView
-        android:id="@+id/field_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:background="@drawable/fieldname_background" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
+    <RelativeLayout
+            android:id="@+id/field_list_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="horizontal"
+            android:background="@drawable/topplant"
+            >
 
         <TextView
-            android:id="@+id/air_humidity_view"
-            android:layout_width="0dp"
+                android:id="@+id/fieldName"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="30sp"
+                android:paddingLeft="16dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:paddingRight="16dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/bold_montserrat"
+                />
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/radiation"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="18sp"
-            android:background="@drawable/data_background" />
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="wrap_content" />
-
+            android:layout_below="@id/field_list_title_layout"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/data_background">
         <TextView
-            android:id="@+id/radiation_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="18sp"
-            android:background="@drawable/data_background" />
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
+                android:id="@+id/radiation_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radiation"
+                android:textSize="14sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/montserrat_bld"
+                />
+        <ImageView
+                android:id="@+id/radiationIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/radiation"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"/>
         <TextView
-            android:id="@+id/soil_humidity"
-            android:layout_width="0dp"
+            android:layout_below="@id/radiationIcon"
+            android:id="@+id/radiationValue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="18sp"
-            android:background="@drawable/data_background" />
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="wrap_content" />
-
+            android:textSize="25sp"
+            android:layout_marginTop="7dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/tt_hoves_bold"
+                />
         <TextView
-            android:id="@+id/temperature_view"
-            android:layout_width="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radiationValue"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#939598"
+                android:fontFamily="@font/manrope_bold"
+                android:text="@string/rad_s"
+                android:layout_marginBottom="20dp"
+                />
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="18sp"
-            android:background="@drawable/data_background" />
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="wrap_content" />
-
-        <View
-            android:id="@+id/View1"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_weight="1" />
-
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
+            android:layout_below="@id/field_list_title_layout"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/data_background">
+        <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                android:textSize="14sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/montserrat_bld"
+                />
+        <ImageView
+                android:id="@+id/temperatureIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/thermometer"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"/>
+        <TextView
+                android:layout_below="@id/temperatureIcon"
+                android:id="@+id/temperatureValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/tt_hoves_bold"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/temperatureValue"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#939598"
+                android:fontFamily="@font/manrope_bold"
+                android:text="@string/calcius"
+                android:layout_marginBottom="20dp"
+                />
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radiation"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/data_background">
+        <TextView
+                android:id="@+id/soil_moisture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/soil_moisture"
+                android:textSize="14sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/montserrat_bld"
+                />
+        <ImageView
+                android:id="@+id/soilMoistureIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/soil"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"/>
+        <TextView
+                android:layout_below="@id/soilMoistureIcon"
+                android:id="@+id/soilMoistureValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/tt_hoves_bold"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/soilMoistureValue"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#939598"
+                android:fontFamily="@font/manrope_bold"
+                android:text="@string/kPa"
+                android:layout_marginBottom="20dp"
+                />
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/humidity"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radiation"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/data_background">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textSize="14sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/montserrat_bld"
+                />
+        <ImageView
+                android:id="@+id/humidityIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/humid"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"/>
+        <TextView
+                android:layout_below="@id/humidityIcon"
+                android:id="@+id/humidityValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/tt_hoves_bold"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/humidityValue"
+                android:layout_marginTop="7dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#939598"
+                android:fontFamily="@font/manrope_bold"
+                android:text="@string/percent"
+                android:layout_marginBottom="20dp"
+                />
+    </RelativeLayout>
     <Button
-        android:id="@+id/waterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="30dp"
-        android:text="@string/waterButton" />
+            android:id="@+id/waterButton"
+            android:layout_width="300dp"
+            android:layout_height="56dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/button_green"
+            android:layout_below="@id/humidity"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat_bld"
+            android:text="@string/control"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
 
-</LinearLayout>
+</RelativeLayout>

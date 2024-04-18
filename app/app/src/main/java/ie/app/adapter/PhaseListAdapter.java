@@ -1,5 +1,6 @@
 package ie.app.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class PhaseListAdapter extends ArrayAdapter<Phase> {
         return phases.size();
     }
 
+    @SuppressLint("DefaultLocale")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -54,8 +56,8 @@ public class PhaseListAdapter extends ArrayAdapter<Phase> {
         TextView stageName = convertView.findViewById(R.id.stageName);
         stageName.setText(phase.getName());
 
-        TextView stageEditHumid = convertView.findViewById(R.id.stageEditHumid);
-        stageEditHumid.setText("" + phase.threshHold);
+        TextView stageEditHumid = convertView.findViewById(R.id.stageHumidEdit);
+        stageEditHumid.setText(String.format("%.2f",phase.threshHold));
 
         TextView stageStartDate = convertView.findViewById(R.id.stageStartDate);
         stageStartDate.setText(phase.startTime);

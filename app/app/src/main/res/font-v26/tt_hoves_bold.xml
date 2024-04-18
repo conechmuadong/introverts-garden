@@ -5,9 +5,9 @@
     <font
             android:fontStyle="normal"
             android:fontWeight="400"
-            android:font="@font/tt_hoves_bold"
+            android:font="@font/tt_hoves"
             app:fontStyle="normal"
             app:fontWeight="400"
-            app:font="@font/bold_montserrat"
+            app:font="@font/tt_hoves"
             tools:ignore="ResourceCycle"/>
 </font-family>

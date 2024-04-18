@@ -1,5 +1,6 @@
 package ie.app.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -99,23 +100,23 @@ public class MeasuredDataFragment extends BaseFragment {
             fieldnameView.setText(fieldname);
             fieldnameView.setLineSpacing(10f, 1f);
 
-            String airHumidityText = "Độ ẩm không khí\n" + field.measuredData.air_humidity;
-            TextView airHumidityView = binding.airHumidityView;
+            @SuppressLint("DefaultLocale") String airHumidityText = String.format("%.2f",field.measuredData.air_humidity);
+            TextView airHumidityView = binding.humidityValue;
             airHumidityView.setText(airHumidityText);
             airHumidityView.setLineSpacing(10f, 1f);
 
-            String radiationText = "Bức xạ\n" + field.measuredData.radiation;
-            TextView radiationView = binding.radiationView;
+            @SuppressLint("DefaultLocale") String radiationText = String.format("%.2f", field.measuredData.radiation);
+            TextView radiationView = binding.radiationValue;
             radiationView.setText(radiationText);
             radiationView.setLineSpacing(10f, 1f);
 
-            String soilHumidity30Text = "Độ ẩm đất\n" + field.measuredData.soil_humidity;
-            TextView soilHumidity30View = binding.soilHumidity;
-            soilHumidity30View.setText(soilHumidity30Text);
+            @SuppressLint("DefaultLocale") String soilMoisture = String.format("%.2f",field.measuredData.soil_humidity);
+            TextView soilHumidity30View = binding.soilMoistureValue;
+            soilHumidity30View.setText(soilMoisture);
             soilHumidity30View.setLineSpacing(10f, 1f);
 
-            String temperatureText = "Nhiệt độ\n" + field.measuredData.temperature;
-            TextView temperatureView = binding.temperatureView;
+            @SuppressLint("DefaultLocale") String temperatureText = String.format("%.2f",field.measuredData.temperature);
+            TextView temperatureView = binding.temperatureValue;
             temperatureView.setText(temperatureText);
             temperatureView.setLineSpacing(10f, 1f);
         }

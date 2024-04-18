@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import ie.app.R;
-import ie.app.databinding.FragmentHomepageBinding;
+import ie.app.databinding.FragmentWelcomePageBinding;
 
-public class HomepageFragment extends Fragment {
+public class WelcomePageFragment extends Fragment {
 
-    private FragmentHomepageBinding binding;
+    private FragmentWelcomePageBinding binding;
 
     @Override
     public View onCreateView(
@@ -22,7 +22,7 @@ public class HomepageFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentHomepageBinding.inflate(inflater, container, false);
+        binding = FragmentWelcomePageBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -33,7 +33,7 @@ public class HomepageFragment extends Fragment {
         binding.homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(HomepageFragment.this)
+                NavHostFragment.findNavController(WelcomePageFragment.this)
                         .navigate(R.id.action_HomepageFragment_to_FieldlistFragment);
             }
         });

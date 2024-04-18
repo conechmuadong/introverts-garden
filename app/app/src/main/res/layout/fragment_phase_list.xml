@@ -6,11 +6,23 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".fragments.PhaseListFragment">
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:id="@+id/space"/>
+    <RelativeLayout
+            android:id="@+id/topPanel"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/topplant">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/phaseList_fragment_label_en"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:fontFamily="@font/montserrat_bld"/>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listPhase"
@@ -18,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/twoButton"
-        android:layout_below="@+id/space"
+        android:layout_below="@id/topPanel"
         android:paddingHorizontal="20dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

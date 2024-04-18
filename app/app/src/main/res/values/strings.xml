@@ -9,6 +9,7 @@
     <string name="irrigation_fragment_label">Cài đặt tưới</string>
     <string name="customized_fragment_label">Điều chỉnh</string>
     <string name="phaseList_fragment_label">Các giai đoạn</string>
+    <string name="phaseList_fragment_label_en">Phases</string>
 
     <string name="Logo">Logo</string>
     <string name="add">New</string>
@@ -41,7 +42,7 @@
     <string name="fer_level">Cấp độ bón phân: </string>
     <string name="rain">Tỉ lệ mưa: </string>
     <string name="number_holes_unit">lỗ</string>
-    <string name="humidity">Phần trăm độ ẩm </string>
+    <string name="humidity">Humidity</string>
 
     <string name="delete">Delete</string>
     <string name="adjust">Điều chỉnh</string>
@@ -69,4 +70,23 @@
     <string name="hint_new_field_name">Name your garden</string>
     <string name="view">View</string>
     <string name="edit">Adjust\n</string>
+    <string name="area_en">Area</string>
+    <string name="number_holes_en">Number of holes</string>
+    <string name="no_of_holes_en">No. of holes</string>
+    <string name="distance_holes_en">Distance between holes</string>
+    <string name="distance_row_en">Distance between rows</string>
+    <string name="drip_rate_en">Drip rate</string>
+    <string name="rain_en">Rain scale</string>
+    <string name="update_en">Update</string>
+    <string name="stage_change_en">Adjust stage</string>
+    <string name="radiation">Radiation</string>
+    <string name="rad_s">rad/s</string>
+    <string name="calcius">°C</string>
+    <string name="temperature">Temperature</string>
+    <string name="kPa">kPa</string>
+    <string name="soil_moisture">Soil\nMoisture</string>
+    <string name="percent">%</string>
+    <string name="control">Water your garden</string>
+    <string name="end_date">End date</string>
+    <string name="start_date">Start date</string>
 </resources>

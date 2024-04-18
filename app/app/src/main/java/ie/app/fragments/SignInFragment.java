@@ -1,2 +1,4 @@
-package ie.app.fragments;public class SignInFragment {
+package ie.app.fragments;
+
+public class SignInFragment {
 }

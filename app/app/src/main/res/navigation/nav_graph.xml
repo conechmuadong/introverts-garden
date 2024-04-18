@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/HomepageFragment"
-        android:name="ie.app.fragments.HomepageFragment"
+        android:name="ie.app.fragments.WelcomePageFragment"
         android:label="@string/homepage_fragment_label"
-        tools:layout="@layout/fragment_homepage">
+        tools:layout="@layout/fragment_welcome_page">
 
         <action
             android:id="@+id/action_HomepageFragment_to_FieldlistFragment"

@@ -68,13 +68,6 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.humidityView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Nav to phases view
-            }
-        });
-
         binding.updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +77,7 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
                 field.customizedParameter.distanceBetweenRow = Float.parseFloat(binding.distanceRowEditText.getText().toString());
                 field.customizedParameter.dripRate = Float.parseFloat(binding.dripRateEditText.getText().toString());
                 field.customizedParameter.scaleRain = Float.parseFloat(binding.scaleRainEditText.getText().toString());
-                field.customizedParameter.fertilizationLevel = Float.parseFloat(binding.ferLevelEditText.getText().toString());
+                field.customizedParameter.fertilizationLevel = Float.parseFloat("0.2");
                 field.customizedParameter.fieldCapacity = phases;
                 FirebaseAPI.changeCustomizedParameter("users", field.name, field.customizedParameter);
                 updateUI();
@@ -169,21 +162,6 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
         scaleRainView.setText(scaleRainText);
         scaleRainView.setLineSpacing(10f, 1f);
 
-        String ferLevelText = "" + field.customizedParameter.fertilizationLevel;
-        TextView ferLevelView = binding.ferLevelEditText;
-        ferLevelView.setText(ferLevelText);
-        ferLevelView.setLineSpacing(10f, 1f);
-
-        String humidityText = "";
-        Date currentDate = new Date();
-        for(Phase phase : field.customizedParameter.fieldCapacity) {
-            if(phase.getStartTime().compareTo(currentDate) <= 0 && currentDate.compareTo(phase.getEndTime()) <= 0) {
-                humidityText += phase.getThreshHold();
-                break;
-            }
-        }
-        TextView humidityView = binding.humidityValue;
-        humidityView.setLineSpacing(10f, 1f);
     }
 
     @Override
