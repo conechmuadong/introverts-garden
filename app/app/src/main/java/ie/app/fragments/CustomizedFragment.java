@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,7 +68,14 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        LinearLayout backButton = binding.backButton;
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(CustomizedFragment.this)
+                        .navigate(R.id.action_CustomizedFragment_to_FieldlistFragment);
+            }
+        });
         binding.updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +89,7 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
                 field.customizedParameter.fieldCapacity = phases;
                 FirebaseAPI.changeCustomizedParameter("users", field.name, field.customizedParameter);
                 updateUI();
-                Toast.makeText(getContext(), "Các thay đổi đã được cập nhật", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Your changes are updated!", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -11,6 +11,34 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:background="@drawable/topplant">
+
+        <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_button"
+                    android:layout_marginTop="20dp"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/tt_hoves_bold"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:text="@string/adjust_en"/>
+        </LinearLayout>
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -19,43 +47,47 @@
             android:layout_marginStart="30dp"
             android:layout_alignParentBottom="true"
             android:text="@string/phaseList_fragment_label_en"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:fontFamily="@font/montserrat_bld"/>
+
+        <Button
+                android:id="@+id/addPhaseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/montserrat_bld"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="45dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/button_white"
+                app:backgroundTint="@null"
+                android:textColor="@color/colorPrimary"
+                />
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/listPhase"
-        style="@style/Widget.AppCompat.Light.ListView.DropDown"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/twoButton"
-        android:layout_below="@id/topPanel"
-        android:paddingHorizontal="20dp" />
+            android:id="@+id/listPhase"
+            style="@style/Widget.AppCompat.Light.ListView.DropDown"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_below="@id/topPanel"
+            android:paddingHorizontal="20dp"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/twoButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="80dp">
-
-        <Button
-            android:id="@+id/addPhaseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <Button
-            android:id="@+id/updatePhaseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/update"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/updatePhaseButton"
+        android:layout_width="300dp"
+        android:layout_height="56dp"
+        android:text="@string/update_en"
+        app:backgroundTint="@null"
+        android:background="@drawable/btn_green"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_bld"
+        android:layout_below="@id/listPhase"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
 
 </RelativeLayout>

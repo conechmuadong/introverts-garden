@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              tools:context=".fragments.VideoShowFragment">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/top"
+            android:layout_height="360dp"
+            android:background="@color/colorPrimary">
+        <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_button"
+                    android:layout_marginTop="20dp"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/tt_hoves_bold"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:text="@string/tips"/>
+        </LinearLayout>
+        <ImageView
+                android:id="@+id/topPanel"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/decoration"
+                android:cropToPadding="true" />
+        <WebView
+                android:id="@+id/videoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_below="@id/topPanel"/>
+    </RelativeLayout>
+    <TextView
+            android:id="@+id/videoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:textSize="23sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/tt_hoves_bold"
+            android:layout_below="@id/top"
+            />
+
+</RelativeLayout>

@@ -52,7 +52,13 @@ public class MeasuredDataFragment extends BaseFragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(MeasuredDataFragment.this)
+                        .navigate(R.id.action_MeasuredDataFragment_to_FieldlistFragment);
+            }
+        });
         binding.waterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

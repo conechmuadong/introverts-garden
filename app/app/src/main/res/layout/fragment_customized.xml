@@ -15,7 +15,33 @@
             android:orientation="horizontal"
             android:background="@drawable/topplant"
             >
+        <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp">
 
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_button"
+                    android:layout_marginTop="20dp"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/tt_hoves_bold"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:text="@string/field_list_title"/>
+        </LinearLayout>
         <TextView
                 android:id="@+id/fieldName"
                 android:layout_height="wrap_content"

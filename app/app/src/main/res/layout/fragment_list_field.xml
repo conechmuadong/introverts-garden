@@ -51,6 +51,7 @@
 
     <ListView
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="90dp"
         android:id="@+id/listField"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -58,6 +59,6 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:layout_gravity="center_horizontal"
-        android:divider="@null"    />
+        android:divider="@null"/>
 
 </LinearLayout>

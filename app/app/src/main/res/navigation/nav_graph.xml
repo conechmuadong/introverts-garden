@@ -56,6 +56,20 @@
         android:name="ie.app.fragments.AddNewFieldFragment"
         android:label="Thêm cánh đồng"
         tools:layout="@layout/fragment_add_new_field">
+        <action
+                android:id="@+id/action_AddNewFieldFragment_to_FieldlistFragment"
+                app:destination="@id/FieldlistFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
+        <action
+                android:id="@+id/action_AddNewFieldFragment_to_CustomizedFragment"
+                app:destination="@id/CustomizedFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
     </fragment>
 
     <fragment
@@ -70,6 +84,13 @@
             app:exitAnim="@anim/to_right_out"
             app:popEnterAnim="@anim/to_left_in"
             app:popExitAnim="@anim/to_left_out" />
+        <action
+                android:id="@+id/action_CustomizedFragment_to_FieldlistFragment"
+                app:destination="@id/FieldlistFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
     </fragment>
 
     <fragment
@@ -84,6 +105,13 @@
             app:exitAnim="@anim/to_right_out"
             app:popEnterAnim="@anim/to_left_in"
             app:popExitAnim="@anim/to_left_out" />
+        <action
+                android:id="@+id/action_listPhase_to_CustomizedFragment"
+                app:destination="@id/CustomizedFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
     </fragment>
 
     <fragment
@@ -106,6 +134,13 @@
             app:exitAnim="@anim/to_right_out"
             app:popEnterAnim="@anim/to_left_in"
             app:popExitAnim="@anim/to_left_out" />
+        <action
+                android:id="@+id/action_MeasuredDataFragment_to_FieldlistFragment"
+                app:destination="@id/FieldlistFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
     </fragment>
 
     <fragment
@@ -114,6 +149,13 @@
         android:label="@string/irrigation_fragment_label"
         tools:layout="@layout/fragment_irrigation_setting">
 
+        <action
+                android:id="@+id/action_IrrigationSettingFragment_to_MeasuredDataFragment"
+                app:destination="@id/MeasuredDataFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
     </fragment>
     <fragment
             android:id="@+id/homepageFragment"
@@ -133,6 +175,45 @@
                 app:exitAnim="@anim/to_right_out"
                 app:popEnterAnim="@anim/to_left_in"
                 app:popExitAnim="@anim/to_left_out"/>
+        <action
+                android:id="@+id/action_homepageFragment_to_tipsFragment"
+                app:destination="@id/tipsFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
+        <action
+                android:id="@+id/action_homepageFragment_to_videoShowFragment"
+                app:destination="@id/videoShowFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
+    </fragment>
+    <fragment
+            android:id="@+id/tipsFragment"
+            android:name="ie.app.fragments.TipsFragment"
+            android:label="TipsFragment">
+        <action
+                android:id="@+id/action_tipsFragment_to_videoShowFragment"
+                app:destination="@id/videoShowFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
+    </fragment>
+    <fragment
+            android:id="@+id/videoShowFragment"
+            android:name="ie.app.fragments.VideoShowFragment"
+            android:label="fragment_show_video"
+            tools:layout="@layout/fragment_show_video">
+        <action
+                android:id="@+id/action_videoShowFragment_to_tipsFragment"
+                app:destination="@id/tipsFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
     </fragment>
 
 </navigation>

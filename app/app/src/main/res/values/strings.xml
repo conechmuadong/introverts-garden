@@ -43,7 +43,7 @@
     <string name="rain">Tỉ lệ mưa: </string>
     <string name="number_holes_unit">lỗ</string>
     <string name="humidity">Humidity</string>
-
+    <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="adjust">Điều chỉnh</string>
     <string name="status">Tình trạng</string>
@@ -100,4 +100,12 @@
     <string name="tip2_author">cloudyhills</string>
     <string name="tip3_title">Growing Rosemary is SO Easy</string>
     <string name="tip3_author">Epic Gardening</string>
+    <string name="adjust_en">Adjust</string>
+    <string name="tips_for_garden">Tips for \nyour gardens</string>
+    <string name="tip5_title">How to Grow Rosemary at Home | All About Classic Aromatic Herb Rosemary</string>
+    <string name="tip5_author">Garden Vibes</string>
+    <string name="tip4_title">Bok Choy - Best Growing and Harvesting Tips | Maximum Production</string>
+    <string name="tip4_author">GreenTGarden</string>
+
+
 </resources>

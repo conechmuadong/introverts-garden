@@ -5,7 +5,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               tools:context=".fragments.AddNewFieldFragment"
-              android:orientation="horizontal">
+              android:orientation="horizontal"
+              android:background="@color/background">
     <RelativeLayout
             android:id="@+id/new_field_title_layout"
             android:layout_width="match_parent"
@@ -61,12 +62,16 @@
         android:singleLine="true"
         android:padding="10dp"
             />
-
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/newFieldEditText"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            >
     <Button
         android:id="@+id/doneBtn"
         android:layout_marginBottom="20dp"
-        android:layout_below="@id/newFieldEditText"
-        android:layout_centerHorizontal="true"
         app:backgroundTint="@null"
         android:background="@drawable/button_green"
         android:layout_width="wrap_content"
@@ -80,5 +85,22 @@
         android:fontFamily="@font/bold_montserrat"
         app:layout_constraintTop_toBottomOf="@+id/newFieldEditText"
         android:text="@string/done"/>
-
+        <Button
+                android:id="@+id/cancel_button"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                app:backgroundTint="@null"
+                android:background="@drawable/button_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:fontFamily="@font/bold_montserrat"
+                app:layout_constraintTop_toBottomOf="@+id/newFieldEditText"
+                android:text="@string/cancel"/>
+    </LinearLayout>
 </RelativeLayout>

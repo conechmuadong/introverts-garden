@@ -97,6 +97,13 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
                         .navigate(R.id.action_homepageFragment_to_FieldlistFragment);
             }
         });
+        binding.detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomepageFragment.this)
+                        .navigate(R.id.action_homepageFragment_to_tipsFragment);
+            }
+        });
     }
 
     @Override
@@ -172,5 +179,4 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
             Log.e("AsyncTask", "An error occurred while getting data");
         }
     }
-
 }

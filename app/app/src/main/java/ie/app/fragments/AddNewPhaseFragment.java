@@ -55,7 +55,7 @@ public class AddNewPhaseFragment extends BaseFragment {
                 if (binding.humidEditText.getText().toString().equals("") ||
                         binding.startDatEditText.getText().toString().equals("") ||
                         binding.endDatEditText.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Cannot be left blank", Toast.LENGTH_SHORT).show();
                 } else {
                     Integer num = field.customizedParameter.getFieldCapacity().size() + 1;
                     Phase x = new Phase("phase" + num,
@@ -65,7 +65,7 @@ public class AddNewPhaseFragment extends BaseFragment {
                     field.customizedParameter.getFieldCapacity().add(x);
                     FirebaseAPI.addPhase(binding.humidEditText.getText().toString(),
                             binding.startDatEditText.getText().toString(),
-                            binding.endDatEditText.getText().toString(), "user", field.getName(), num);
+                            binding.endDatEditText.getText().toString(), "users", field.getName(), num);
                     NavHostFragment.findNavController(AddNewPhaseFragment.this)
                             .navigateUp();
                 }

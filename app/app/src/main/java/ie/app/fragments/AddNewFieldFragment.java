@@ -49,27 +49,24 @@ public class AddNewFieldFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        binding.cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(AddNewFieldFragment.this)
+                        .navigate(R.id.action_AddNewFieldFragment_to_FieldlistFragment);
+            }
+        });
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (addNewFieldEditText.getText().toString().equals("")) {
                     Toast.makeText(getContext(), "Không được để trống!", Toast.LENGTH_SHORT).show();
-                    try {
-                        File myObj = new File("filename.txt");
-                        if (myObj.createNewFile()) {
-                            Log.e("haiya", "File created: " + myObj.getName());
-                        } else {
-                            Log.e("haiya", "File already exists.");
-                        }
-                    } catch (Exception e) {
-                        Log.e("haiya", "An error occurred.");
-                        e.printStackTrace();
-                    }
                 } else {
-                    NavHostFragment.findNavController(AddNewFieldFragment.this)
-                            .navigateUp();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("selectedFieldName",addNewFieldEditText.getText().toString());
                     FirebaseAPI.addField("users", addNewFieldEditText.getText().toString());
+                    NavHostFragment.findNavController(AddNewFieldFragment.this)
+                            .navigate(R.id.action_AddNewFieldFragment_to_CustomizedFragment, bundle);
                 }
 
             }
