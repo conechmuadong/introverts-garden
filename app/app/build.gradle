@@ -42,7 +42,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.5.3'
     implementation "androidx.slidingpanelayout:slidingpanelayout:1.2.0"
     implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
     implementation 'com.google.firebase:firebase-database:20.3.1'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-messaging:23.4.1'
+    implementation 'com.google.firebase:firebase-auth:22.3.1'
+
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.27'
     testImplementation 'junit:junit:4.13.2'

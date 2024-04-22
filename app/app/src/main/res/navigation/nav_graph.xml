@@ -11,12 +11,8 @@
         android:label="@string/homepage_fragment_label"
         tools:layout="@layout/fragment_welcome_page">
         <action
-                android:id="@+id/action_WelcomeFragment_to_homepageFragment"
-                app:destination="@id/homepageFragment"
-                app:enterAnim="@anim/to_right_in"
-                app:exitAnim="@anim/to_right_out"
-                app:popEnterAnim="@anim/to_left_in"
-                app:popExitAnim="@anim/to_left_out"/>
+            android:id="@+id/action_WelcomeFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
 
     <fragment
@@ -221,6 +217,26 @@
                 app:exitAnim="@anim/to_left_out"
                 app:popEnterAnim="@anim/to_right_in"
                 app:popExitAnim="@anim/to_right_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="ie.app.fragments.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="ie.app.fragments.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
 
 </navigation>

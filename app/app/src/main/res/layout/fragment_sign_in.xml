@@ -152,6 +152,7 @@
                 tools:ignore="RtlHardcoded"/>
 
         <TextView
+                android:id="@+id/switchToSignUp"
                 android:layout_width="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_height="match_parent"
@@ -159,7 +160,7 @@
                 android:fontFamily="@font/bold_montserrat"
                 android:gravity="center_vertical"
                 android:text="@string/sign_up"
-                android:textColor="#FA4D5E"
+                android:textColor="@color/red"
                 android:textSize="12sp"
                 android:focusable="true"/>
     </LinearLayout>

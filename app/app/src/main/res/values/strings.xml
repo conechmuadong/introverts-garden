@@ -15,8 +15,12 @@
     <string name="add">New</string>
     <string name="getting_started">Start caring your garden</string>
     <string name="homepage_sign_in">Already have an account?</string>
-    <string name="sign_in">Sign in</string>
-    <string name="sign_up">Sign up</string>
+    <string name="sign_in">
+        <u>Sign In.</u>
+    </string>
+    <string name="sign_up">
+        <u>Sign Up.</u>
+    </string>
     <string name="sign_up_mark_question">Don\'t have an account?</string>
     <string name="project_name">Introverts\' Garden</string>
     <string name="introduction">Start caring your garden with our smart solutions.</string>
@@ -58,8 +62,12 @@
     <string name="start_date_insert">Nhập ngày bắt đầu</string>
     <string name="end_date_insert">Nhập ngày kết thúc</string>
     <string name="humid_insert">Nhập độ ẩm</string>
+    <string name="sign_in_password_confirmation">Password Confirmation</string>
+    <string name="sign_in_mark_question">Already have an account?</string>
     <string name="sign_in_mark_account">Email Address</string>
     <string name="sign_in_acc_eg">extroverts@gmail.com</string>
+    <string name="fill_email">Enter your email address...</string>
+    <string name="enter_email">Enter your email address:</string>
     <string name="sign_in_password">Password</string>
     <string name="sign_in_password_eg">Your Password</string>
     <string name="forgot_password">Forgot password?</string>

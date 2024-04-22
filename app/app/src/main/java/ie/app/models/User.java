@@ -3,9 +3,14 @@ package ie.app.models;
 import java.util.ArrayList;
 
 public class User {
+    public String email;
     ArrayList<Field> fields;
     public User() {
         fields = new ArrayList<>();
+    }
+
+    public User(String email) {
+        this.email = email;
     }
 
     public ArrayList<Field> getFields() {
