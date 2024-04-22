@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.IrrigationSettingFragment"
+    android:background="@color/background"
     android:orientation="vertical">
     <RelativeLayout
             android:id="@+id/field_list_title_layout"
@@ -13,7 +14,33 @@
             android:orientation="horizontal"
             android:background="@drawable/topplant"
             >
+        <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp">
 
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_button"
+                    android:layout_marginTop="20dp"
+                    />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/tt_hoves_bold"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:text="@string/measureddata_fragment_label_en"/>
+        </LinearLayout>
         <TextView
                 android:id="@+id/fieldName"
                 android:layout_height="wrap_content"
@@ -25,151 +52,156 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="20dp"
                 android:paddingRight="16dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:fontFamily="@font/bold_montserrat"
                 />
     </RelativeLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center" >
 
+        <RadioGroup
+                android:checkedButton="@+id/offer"
+                android:id="@+id/toggle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/green_outline"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/manualButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/manualButton" />
+            <RadioButton
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginStart="1dp"
+                    android:id="@+id/manualButton"
+                    android:background="@drawable/toggle_widget_background"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:fontFamily="@font/montserrat"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="@string/manualButton"
+                    android:textColor="@color/white" />
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/autoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/autoButton" />
-
-    </LinearLayout>
+            <RadioButton
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:id="@+id/autoButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/toggle_widget_background"
+                    android:fontFamily="@font/montserrat"
+                    android:button="@null"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="@string/autoButton"
+                    android:textColor="@color/white" />
+        </RadioGroup>
+    </RelativeLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="10dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/irrigation_background" >
-
-        <Space
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            >
         <TextView
-            android:id="@+id/start_time"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:text="@string/start_time" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="wrap_content" />
-            <EditText
+                android:id="@+id/startDate_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/irrigation_start_time_title"
+                android:fontFamily="@font/manrope_bold"
+                android:textSize="18sp"
+                />
+        <EditText
                 android:id="@+id/dateEditText"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:focusable="false"
-                android:inputType="text"
-                android:hint="Ngày" />
-            <Space
-                android:layout_width="15dp"
-                android:layout_height="wrap_content" />
-            <EditText
+                android:layout_width="144dp"
+                android:layout_height="56dp"
+                android:background="@drawable/edit_text_box"
+                android:layout_below="@id/startDate_title"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/manrope_bold"
+                android:textSize="16sp"
+                android:hint="@string/start_date"
+                android:inputType="date"
+                android:drawableStart="@drawable/callendar"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                />
+
+        <EditText
                 android:id="@+id/timeEditText"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:focusable="false"
-                android:inputType="text"
-                android:hint="Giờ" />
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-    </LinearLayout>
+                android:layout_width="144dp"
+                android:layout_height="56dp"
+                android:background="@drawable/edit_text_box"
+                android:layout_below="@id/startDate_title"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/manrope_bold"
+                android:textSize="16sp"
+                android:hint="@string/start_time_en"
+                android:inputType="date"
+                android:drawableStart="@drawable/callendar"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                />
+    </RelativeLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/irrigation_background" >
-
-        <Space
+        android:layout_height="10dp" />
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <TextView
-            android:id="@+id/amount_water"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            >
+    <TextView
+            android:id="@+id/amount_title"
             android:layout_width="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:text="@string/amount_water" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <Space
-                android:layout_width="100dp"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/amountEditText"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:focusable="true"
-                android:text="00:00:00" />
-            <Space
-                android:layout_width="2dp"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/unit"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-    </LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:text="@string/irrigation_amount_time_title"
+            android:fontFamily="@font/manrope_bold"
+            android:textSize="18sp"
+            />
+    <EditText
+            android:id="@+id/amountEditText"
+            android:layout_width="184dp"
+            android:layout_height="56dp"
+            android:background="@drawable/edit_text_box"
+            android:layout_below="@id/amount_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/manrope_bold"
+            android:textSize="16sp"
+            android:hint="@string/irrigation_amount_time_title"
+            android:inputType="date"
+            android:drawableStart="@drawable/callendar"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            />
+    </RelativeLayout>
 
     <Space
         android:layout_width="match_parent"
@@ -177,10 +209,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="@drawable/button_green"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/irrigation_background" >
+        >
 
         <Space
             android:layout_width="match_parent"
@@ -192,7 +227,9 @@
             android:layout_width="wrap_content"
             android:gravity="center"
             android:textSize="18sp"
-            android:text="@string/end_time" />
+            android:text="@string/end_time_en"
+            android:textColor="@color/white"
+            android:fontFamily="@font/tt_hoves_bold"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,6 +241,8 @@
                 android:id="@+id/endDate"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:fontFamily="@font/tt_hoves_bold"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:text="13-06-2003" />
@@ -214,6 +253,8 @@
                 android:id="@+id/endTime"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:fontFamily="@font/tt_hoves_bold"
                 android:layout_height="wrap_content"
                 android:text="08:05:00" />
             <Space
@@ -226,13 +267,20 @@
             android:layout_height="10dp" />
 
     </LinearLayout>
-
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            />
     <Button
         android:id="@+id/updateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_green"
+        android:layout_width="200dp"
+        android:layout_height="56dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat_bld"
         android:layout_gravity="center_horizontal"
-        android:text="Cập nhật" />
+        android:text="@string/update_en" />
 
 
 </LinearLayout>

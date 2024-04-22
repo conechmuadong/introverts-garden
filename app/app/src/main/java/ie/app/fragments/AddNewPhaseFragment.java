@@ -42,7 +42,7 @@ public class AddNewPhaseFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         binding = FragmentAddNewPhaseBinding.inflate(inflater, container, false);
 
-        doneBtn = binding.doneButton;
+        doneBtn = binding.addPhaseButton;
         return binding.getRoot();
     }
 
@@ -53,19 +53,19 @@ public class AddNewPhaseFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (binding.humidEditText.getText().toString().equals("") ||
-                        binding.startDatEditText.getText().toString().equals("") ||
-                        binding.endDatEditText.getText().toString().equals("")) {
+                        binding.startDateEditText.getText().toString().equals("") ||
+                        binding.endDateEditText.getText().toString().equals("")) {
                     Toast.makeText(getContext(), "Cannot be left blank", Toast.LENGTH_SHORT).show();
                 } else {
                     Integer num = field.customizedParameter.getFieldCapacity().size() + 1;
                     Phase x = new Phase("phase" + num,
                             Float.parseFloat(binding.humidEditText.getText().toString()),
-                            binding.startDatEditText.getText().toString(),
-                            binding.endDatEditText.getText().toString());
+                            binding.startDateEditText.getText().toString(),
+                            binding.endDateEditText.getText().toString());
                     field.customizedParameter.getFieldCapacity().add(x);
                     FirebaseAPI.addPhase(binding.humidEditText.getText().toString(),
-                            binding.startDatEditText.getText().toString(),
-                            binding.endDatEditText.getText().toString(), "users", field.getName(), num);
+                            binding.startDateEditText.getText().toString(),
+                            binding.endDateEditText.getText().toString(), "users", field.getName(), num);
                     NavHostFragment.findNavController(AddNewPhaseFragment.this)
                             .navigateUp();
                 }

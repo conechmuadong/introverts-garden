@@ -20,6 +20,7 @@ import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 
+import androidx.navigation.fragment.NavHostFragment;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 
@@ -62,20 +63,13 @@ public class IrrigationSettingFragment extends BaseFragment {
         update();
         mode = Mode.MANUAL;
         Log.v("Irrigation Setting", mode.toString());
-
+        binding.manualButton.setBackgroundColor(binding.manualButton.getContext().
+                getResources().getColor(R.color.colorPrimary));
         if(mode == Mode.AUTO) {
-            binding.manualButton.setBackgroundColor(binding.manualButton.getContext().
-                    getResources().getColor(R.color.disable));
-            binding.autoButton.setBackgroundColor(binding.autoButton.getContext().
-                    getResources().getColor(R.color.colorPrimary));
             binding.amountEditText.setEnabled(false);
             binding.dateEditText.setEnabled(false);
             binding.timeEditText.setEnabled(false);
         } else {
-            binding.manualButton.setBackgroundColor(binding.manualButton.getContext().
-                    getResources().getColor(R.color.colorPrimary));
-            binding.autoButton.setBackgroundColor(binding.autoButton.getContext().
-                    getResources().getColor(R.color.disable));
             binding.amountEditText.setEnabled(true);
             binding.dateEditText.setEnabled(true);
             binding.timeEditText.setEnabled(true);
@@ -101,7 +95,14 @@ public class IrrigationSettingFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         update();
-
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(IrrigationSettingFragment.this)
+                        .navigate(R.id.action_IrrigationSettingFragment_to_MeasuredDataFragment);
+            }
+        });
+        binding.fieldName.setText(field.getName());
         binding.manualButton.setOnClickListener(view1 -> {
             mode = Mode.MANUAL;
             // set background

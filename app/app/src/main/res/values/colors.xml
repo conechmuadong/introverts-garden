@@ -6,4 +6,5 @@
     <color name="disable">#A7D4BC</color>
     <color name="background">#EDF4ED</color>
     <color name="background_homepage">#2CAB69</color>
+    <color name="transparent">#80000000</color>
 </resources>
