@@ -118,7 +118,7 @@ public class SignUpFragment extends Fragment {
         String email = edtUsr.getText().toString();
         String password = edtPwd.getText().toString();
         String passwordConfirm = edtPwdCf.getText().toString();
-        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+//        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         if (email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
             Toast.makeText(getActivity(), "Please fill in all fields.", Toast.LENGTH_LONG).show();
@@ -136,7 +136,8 @@ public class SignUpFragment extends Fragment {
                             User user = new User(email);
                             // Send data to Firebase Realtime Database, using uid as unique identity of each user
                             FirebaseDatabase.getInstance().getReference("users")
-                                    .child(uid).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .child(FirebaseAuth.getInstance().getUid()).setValue(user)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             // Sign up success
