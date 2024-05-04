@@ -136,7 +136,8 @@ public class SignUpFragment extends Fragment {
                             User user = new User(email);
                             // Send data to Firebase Realtime Database, using uid as unique identity of each user
                             FirebaseDatabase.getInstance().getReference("users")
-                                    .child(FirebaseAuth.getInstance().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .child(FirebaseAuth.getInstance().getUid()).setValue(user)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             // Sign up success
