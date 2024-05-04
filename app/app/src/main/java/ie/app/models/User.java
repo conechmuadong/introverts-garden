@@ -12,7 +12,6 @@ public class User {
     public User(String email) {
         this.email = email;
     }
-
     public ArrayList<Field> getFields() {
         return fields;
     }

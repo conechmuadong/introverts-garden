@@ -163,8 +163,11 @@ public class SignInFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success
+                            Bundle bundle = new Bundle();
+                            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            bundle.putString("uid", uid);
                             NavHostFragment.findNavController(SignInFragment.this)
-                                    .navigate(R.id.action_signInFragment_to_homepageFragment);
+                                    .navigate(R.id.action_signInFragment_to_homepageFragment, bundle);
                             Toast.makeText(getActivity(), "Login successfully!", Toast.LENGTH_LONG).show();
                         } else {
                             // If sign in fails, display a message to the user.

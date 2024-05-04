@@ -2,6 +2,7 @@ package ie.app.fragments;
 
 import static androidx.core.content.ContextCompat.getSystemService;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -46,12 +47,12 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
     private OnFieldSelectedListener listener;
 
     private ArrayList<Phase> phases = field.customizedParameter.fieldCapacity;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCustomizedBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+        super.onCreateView();
 
         Bundle bundle = getArguments();
         Log.v("CustomizedFragment", "onCreateView ");
@@ -72,8 +73,10 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 NavHostFragment.findNavController(CustomizedFragment.this)
-                        .navigate(R.id.action_CustomizedFragment_to_FieldlistFragment);
+                        .navigate(R.id.action_CustomizedFragment_to_FieldlistFragment, bundle);
             }
         });
         binding.updateButton.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +90,7 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
                 field.customizedParameter.scaleRain = Float.parseFloat(binding.scaleRainEditText.getText().toString());
                 field.customizedParameter.fertilizationLevel = Float.parseFloat("0.2");
                 field.customizedParameter.fieldCapacity = phases;
-                FirebaseAPI.changeCustomizedParameter("users", field.name, field.customizedParameter);
+                FirebaseAPI.changeCustomizedParameter("users/"+uid+"/fields", field.name, field.customizedParameter);
                 updateUI();
                 Toast.makeText(getContext(), "Your changes are updated!", Toast.LENGTH_SHORT).show();
             }
@@ -96,8 +99,10 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
         binding.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 NavHostFragment.findNavController(CustomizedFragment.this)
-                        .navigate(R.id.action_CustomizedFragment_to_listPhase);
+                        .navigate(R.id.action_CustomizedFragment_to_listPhase, bundle);
             }
         });
     }
@@ -108,6 +113,7 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
         binding = null;
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void getFieldByName(String name) {
         field.name = name;
         CustomizedFragment.GetTask task = new CustomizedFragment.GetTask(getContext());

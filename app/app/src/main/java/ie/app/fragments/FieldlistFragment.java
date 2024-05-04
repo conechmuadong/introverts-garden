@@ -41,16 +41,15 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
     private Button addBtn;
     private AlertDialog.Builder builder;
     private AlertDialog alertDialog;
-
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
         binding = FragmentListFieldBinding.inflate(inflater, container, false);
-
+        super.onCreateView();
         listView = (ListView) binding.listField;
-        new GetAllTask(getContext()).execute("/users");
+        new GetAllTask(getContext()).execute("/users/"+uid+"/fields");
 
         addBtn = binding.addButton;
 
@@ -66,6 +65,7 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
                 Log.v("onFieldSelected", field.getName() + " onViewCreated");
                 Bundle bundle = new Bundle();
                 bundle.putString("selectedFieldName", field.getName());
+                bundle.putString("uid", uid);
                 if(Objects.equals(type, "status")) {
                     NavHostFragment.findNavController(FieldlistFragment.this)
                             .navigate(R.id.action_FieldlistFragment_to_MeasuredDataFragment, bundle);
@@ -77,9 +77,9 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
                 }
             }
         };
-
+        Bundle bundle = getArguments();
         addBtn.setOnClickListener(v -> NavHostFragment.findNavController(FieldlistFragment.this)
-                .navigate(R.id.action_FieldlistFragment_to_AddNewFieldFragment));
+                .navigate(R.id.action_FieldlistFragment_to_AddNewFieldFragment, bundle));
     }
 
     @Override
@@ -96,8 +96,9 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
     @Override
     public void onFieldSelected(Field field, String type) {
         Bundle bundle = new Bundle();
-        bundle.putString("selectedField", field.getName());
         Log.v("onFieldSelected", field.getName() + " in fieldlist Fragment");
+        bundle.putString("uid", uid);
+        bundle.putString("selectedFieldName", field.getName());
         if(Objects.equals(type, "status")) {
             NavHostFragment.findNavController(FieldlistFragment.this)
                     .navigate(R.id.action_FieldlistFragment_to_MeasuredDataFragment, bundle);
@@ -123,8 +124,8 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
         });
 
         builder.setPositiveButton("Có", (DialogInterface.OnClickListener) (dialog, which) -> {
-            FirebaseAPI.deleteField("users", field.getName());
-            new GetAllTask(getContext()).execute("/users");
+            FirebaseAPI.deleteField("users" + uid +"/fields", field.getName());
+            new GetAllTask(getContext()).execute("/users+"+ uid +"/fields");
         });
 
         // Create the Alert dialog

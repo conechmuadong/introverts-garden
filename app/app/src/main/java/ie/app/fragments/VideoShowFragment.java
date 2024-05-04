@@ -19,7 +19,7 @@ import ie.app.R;
 import ie.app.databinding.FragmentShowVideoBinding;
 import org.jetbrains.annotations.NotNull;
 
-public class VideoShowFragment extends Fragment {
+public class VideoShowFragment extends BaseFragment {
     private List<String> videoEmbeddedList = List.of("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/JPR5YT1FXL0?si=jioZ0NsaJ73aTL0N\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
             "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/wW5JCuhxNQg?si=b34SDUuJXg_753ow\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
             "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/brbPNLVF9b4?si=F6HsEg9zJWa7R3qu\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
@@ -30,7 +30,7 @@ public class VideoShowFragment extends Fragment {
 
     @SuppressLint("SetJavaScriptEnabled")
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container ,savedInstanceState);
+        super.onCreateView();
         binding = FragmentShowVideoBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         WebView videoPlayer = binding.videoPlayer;
@@ -78,8 +78,10 @@ public class VideoShowFragment extends Fragment {
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 NavHostFragment.findNavController(VideoShowFragment.this)
-                        .navigate(R.id.action_videoShowFragment_to_tipsFragment);
+                        .navigate(R.id.action_videoShowFragment_to_tipsFragment, bundle);
             }
         });
     }

@@ -36,7 +36,7 @@ public class MeasuredDataFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMeasuredDataBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
+        super.onCreateView();
         Bundle bundle = getArguments();
         Log.v("MeasuredDataFragment", "onCreateView ");
         if (bundle != null) {
@@ -55,15 +55,20 @@ public class MeasuredDataFragment extends BaseFragment {
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 NavHostFragment.findNavController(MeasuredDataFragment.this)
-                        .navigate(R.id.action_MeasuredDataFragment_to_FieldlistFragment);
+                        .navigate(R.id.action_MeasuredDataFragment_to_FieldlistFragment, bundle);
             }
         });
         binding.waterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                bundle.putString("selectedFieldName", field.name);
                 NavHostFragment.findNavController(MeasuredDataFragment.this)
-                        .navigate(R.id.action_MeasuredDataFragment_to_IrrigationFragment);
+                        .navigate(R.id.action_MeasuredDataFragment_to_IrrigationFragment, bundle);
             }
         });
     }

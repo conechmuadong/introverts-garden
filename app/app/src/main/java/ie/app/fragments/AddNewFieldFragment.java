@@ -26,7 +26,7 @@ import ie.app.databinding.FragmentListFieldBinding;
 import ie.app.models.Field;
 import ie.app.models.OnFieldSelectedListener;
 
-public class AddNewFieldFragment extends Fragment {
+public class AddNewFieldFragment extends BaseFragment {
 
     private FragmentAddNewFieldBinding binding;
     private Button doneBtn;
@@ -40,7 +40,7 @@ public class AddNewFieldFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAddNewFieldBinding.inflate(inflater, container, false);
-
+        super.onCreateView();
         doneBtn = binding.doneBtn;
         addNewFieldEditText = binding.newFieldEditText;
 
@@ -52,8 +52,10 @@ public class AddNewFieldFragment extends Fragment {
         binding.cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 NavHostFragment.findNavController(AddNewFieldFragment.this)
-                        .navigate(R.id.action_AddNewFieldFragment_to_FieldlistFragment);
+                        .navigate(R.id.action_AddNewFieldFragment_to_FieldlistFragment, bundle);
             }
         });
         doneBtn.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +66,8 @@ public class AddNewFieldFragment extends Fragment {
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("selectedFieldName",addNewFieldEditText.getText().toString());
-                    FirebaseAPI.addField("users", addNewFieldEditText.getText().toString());
+                    bundle.putString("uid", uid);
+                    FirebaseAPI.addField("users/"+uid+"/fields", addNewFieldEditText.getText().toString());
                     NavHostFragment.findNavController(AddNewFieldFragment.this)
                             .navigate(R.id.action_AddNewFieldFragment_to_CustomizedFragment, bundle);
                 }

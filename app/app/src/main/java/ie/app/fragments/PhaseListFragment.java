@@ -53,6 +53,7 @@ public class PhaseListFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView();
         update();
         binding = FragmentPhaseListBinding.inflate(inflater, container, false);
         listView = (ListView) binding.listPhase;
@@ -67,20 +68,24 @@ public class PhaseListFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         adapter = new PhaseListAdapter(getContext(), field.customizedParameter.getFieldCapacity());
         listView.setAdapter(adapter);
-
         addPhaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 NavHostFragment.findNavController(PhaseListFragment.this)
-                        .navigate(R.id.action_listPhase_to_addNewPhaseFragment);
+                        .navigate(R.id.action_listPhase_to_addNewPhaseFragment, bundle);
             }
         });
         LinearLayout backButton = binding.backButton;
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                bundle.putString("selectedFieldName", field.getName());
                 NavHostFragment.findNavController(PhaseListFragment.this)
-                        .navigate(R.id.action_listPhase_to_CustomizedFragment);
+                        .navigate(R.id.action_listPhase_to_CustomizedFragment, bundle);
             }
         });
         updateBtn.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +150,7 @@ public class PhaseListFragment extends BaseFragment {
     @SuppressLint("StaticFieldLeak")
     private void update() {
         GetTask task = new GetTask(getContext());
-        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users", "/" + field.getName());
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users/"+uid+"/fields", "/" + field.getName());
         new AsyncTask<Void, Void, ArrayList<Phase>>() {
             @Override
             protected ArrayList<Phase> doInBackground(Void... voids) {

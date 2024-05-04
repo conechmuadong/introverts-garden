@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import ie.app.R;
 import ie.app.databinding.FragmentTipsBinding;
 
-public class TipsFragment extends Fragment {
+public class TipsFragment extends BaseFragment {
 
     private FragmentTipsBinding binding;
 
@@ -21,7 +21,7 @@ public class TipsFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
+        super.onCreateView();
         binding = FragmentTipsBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -35,6 +35,7 @@ public class TipsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         bundle.putString("Tip chosen", "Tip 1");
+                        bundle.putString("uid", uid);
                         NavHostFragment.findNavController(TipsFragment.this)
                                 .navigate(R.id.action_tipsFragment_to_videoShowFragment, bundle);
                     }
@@ -45,6 +46,7 @@ public class TipsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         bundle.putString("Tip chosen", "Tip 2");
+                        bundle.putString("uid", uid);
                         NavHostFragment.findNavController(TipsFragment.this)
                                 .navigate(R.id.action_tipsFragment_to_videoShowFragment, bundle);
                     }
@@ -55,6 +57,7 @@ public class TipsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         bundle.putString("Tip chosen", "Tip 3");
+                        bundle.putString("uid", uid);
                         NavHostFragment.findNavController(TipsFragment.this)
                                 .navigate(R.id.action_tipsFragment_to_videoShowFragment, bundle);
                     }
@@ -65,6 +68,7 @@ public class TipsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         bundle.putString("Tip chosen", "Tip 4");
+                        bundle.putString("uid", uid);
                         NavHostFragment.findNavController(TipsFragment.this)
                                 .navigate(R.id.action_tipsFragment_to_videoShowFragment, bundle);
                     }
@@ -75,6 +79,7 @@ public class TipsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         bundle.putString("Tip chosen", "Tip 5");
+                        bundle.putString("uid", uid);
                         NavHostFragment.findNavController(TipsFragment.this)
                                 .navigate(R.id.action_tipsFragment_to_videoShowFragment, bundle);
                     }

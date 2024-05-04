@@ -41,7 +41,7 @@ public class AddNewPhaseFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAddNewPhaseBinding.inflate(inflater, container, false);
-
+        super.onCreateView();
         doneBtn = binding.addPhaseButton;
         return binding.getRoot();
     }
@@ -65,9 +65,11 @@ public class AddNewPhaseFragment extends BaseFragment {
                     field.customizedParameter.getFieldCapacity().add(x);
                     FirebaseAPI.addPhase(binding.humidEditText.getText().toString(),
                             binding.startDateEditText.getText().toString(),
-                            binding.endDateEditText.getText().toString(), "users", field.getName(), num);
+                            binding.endDateEditText.getText().toString(), "users/"+uid+"fields", field.getName(), num);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("uid", uid);
                     NavHostFragment.findNavController(AddNewPhaseFragment.this)
-                            .navigateUp();
+                            .navigate(R.id.action_addNewPhaseFragment_to_listPhase, bundle);
                 }
             }
         });

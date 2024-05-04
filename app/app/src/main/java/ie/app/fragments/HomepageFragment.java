@@ -19,6 +19,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 
+import java.nio.BufferUnderflowException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -49,12 +50,13 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+//        Bundle bundle = getArguments();
+        super.onCreateView();
         binding = FragmentHomepageBinding.inflate(inflater, container, false);
         TextView textView = binding.date;
         textView.setText(getCurrentDate());
         listView = (ListView) binding.gardenList;
-        new GetAllTask(getContext()).execute("/users");
-
+        new GetAllTask(getContext()).execute("/users/"+uid+"/fields");
         return binding.getRoot();
     }
 

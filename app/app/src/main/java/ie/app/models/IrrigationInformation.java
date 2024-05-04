@@ -77,31 +77,31 @@ public class IrrigationInformation extends BaseFragment {
 
     public void setAutoIrrigation(boolean autoIrrigation, String field) {
         this.autoIrrigation = autoIrrigation;
-        FirebaseAPI.changeAutoIrrigation("users", field, autoIrrigation);
+        FirebaseAPI.changeAutoIrrigation("users/"+uid+"/fields", field, autoIrrigation);
     }
 
     public void setNewStartDate(String newStartDate, String field) {
         this._startDate = newStartDate;
         this.startTime = newStartDate + " " + _startTime;
-        FirebaseAPI.changeIrrigationTime("users", field, startTime);
+        FirebaseAPI.changeIrrigationTime("users/"+uid+"/fields", field, startTime);
     }
 
     public void setNewStartTime(String newStartTime, String field) {
         this._startTime = newStartTime;
         this.startTime = _startDate + " " + newStartTime;
-        FirebaseAPI.changeIrrigationTime("users", field, startTime);
+        FirebaseAPI.changeIrrigationTime("users/"+uid+"/fields", field, startTime);
     }
 
     public void setNewEndDate(String newEndDate, String field) {
         this._endDate = newEndDate;
         this.endTime = newEndDate + " " + _endTime;
-        FirebaseAPI.changeEndTime("users", field, endTime);
+        FirebaseAPI.changeEndTime("users/"+uid+"/fields", field, endTime);
     }
 
     public void setNewEndTime(String newEndTime, String field) {
         this._endTime = newEndTime;
         this.endTime = _endDate + " " + newEndTime;
-        FirebaseAPI.changeEndTime("users", field, endTime);
+        FirebaseAPI.changeEndTime("users/"+uid+"/fields", field, endTime);
     }
 
     public boolean isChecked() {
