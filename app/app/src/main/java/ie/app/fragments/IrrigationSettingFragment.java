@@ -18,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import androidx.navigation.fragment.NavHostFragment;
@@ -49,6 +50,8 @@ public class IrrigationSettingFragment extends BaseFragment {
     private FragmentIrrigationSettingBinding binding;
     private Mode mode = Mode.MANUAL;
     private String selectedStartDate, selectedStartTime, selectedAmount;
+
+    private String uid;
     private boolean isComputed = false;
 
     @SuppressLint("SetTextI18n")
@@ -57,6 +60,10 @@ public class IrrigationSettingFragment extends BaseFragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            uid = bundle.getString("uid");
+        }
         super.onCreateView();
         Log.v("Irrigation Setting", field.irrigationInformation.toString());
         binding = FragmentIrrigationSettingBinding.inflate(inflater, container, false);
@@ -247,6 +254,8 @@ public class IrrigationSettingFragment extends BaseFragment {
 
                 field.irrigationInformation.setAutoIrrigation((mode == Mode.AUTO), field.name);
                 Log.v("API", "after change mode");
+
+                Toast.makeText(getActivity(), "Updated.", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -591,7 +600,7 @@ public class IrrigationSettingFragment extends BaseFragment {
     @SuppressLint("StaticFieldLeak")
     private void update() {
         GetTreeData taskTreeData = new GetTreeData(getContext());
-        taskTreeData.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users"+uid+"/fields", "/" + field.getName());
+        taskTreeData.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users/"+uid+"/fields", "/" + field.getName());
         new AsyncTask<Void, Void, TreeData>() {
             @Override
             protected TreeData doInBackground(Void... voids) {
@@ -629,7 +638,7 @@ public class IrrigationSettingFragment extends BaseFragment {
         }.execute();
 
         GetTreeData2 taskRootTips = new GetTreeData2(getContext());
-        taskRootTips.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users"+uid+"/fields", "/" + field.getName());
+        taskRootTips.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users/"+uid+"/fields", "/" + field.getName());
         new AsyncTask<Void, Void, ArrayList<Double>>() {
             @Override
             protected ArrayList<Double> doInBackground(Void... voids) {
@@ -648,7 +657,7 @@ public class IrrigationSettingFragment extends BaseFragment {
         }.execute();
 
         GetTreeData3 taskSoilWaterCapacity = new GetTreeData3(getContext());
-        taskSoilWaterCapacity.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users"+uid+"/fields", "/" + field.getName());
+        taskSoilWaterCapacity.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users/"+uid+"/fields", "/" + field.getName());
         new AsyncTask<Void, Void, ArrayList<Double>>() {
             @Override
             protected ArrayList<Double> doInBackground(Void... voids) {

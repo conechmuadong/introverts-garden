@@ -83,6 +83,7 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
             public void onFieldSelected(Field field, String type) {
                 Log.v("onFieldSelected", field.getName() + " onViewCreated");
                 Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
                 bundle.putString("selectedFieldName", field.getName());
                 if(Objects.equals(type, "status")) {
                     NavHostFragment.findNavController(HomepageFragment.this)
