@@ -68,6 +68,7 @@
     <string name="sign_in_acc_eg">extroverts@gmail.com</string>
     <string name="fill_email">Enter your email address...</string>
     <string name="enter_email">Enter your email address:</string>
+    <string name="verify_email">Check your email for verification link!</string>
     <string name="sign_in_password">Password</string>
     <string name="sign_in_password_eg">Your Password</string>
     <string name="forgot_password">Forgot password?</string>

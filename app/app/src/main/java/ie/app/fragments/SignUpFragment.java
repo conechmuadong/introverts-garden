@@ -1,5 +1,8 @@
 package ie.app.fragments;
 
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -22,6 +25,8 @@ import ie.app.databinding.FragmentSignUpBinding;
 import ie.app.models.User;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
@@ -120,36 +125,118 @@ public class SignUpFragment extends Fragment {
         String passwordConfirm = edtPwdCf.getText().toString();
 //        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
-        if (email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
-            Toast.makeText(getActivity(), "Please fill in all fields.", Toast.LENGTH_LONG).show();
+        // bunch of error handlings
+        if (email.isEmpty()) {
+            if (password.isEmpty()) {
+                if (passwordConfirm.isEmpty()) {
+                    Toast.makeText(getActivity(), "Please fill in all fields.", Toast.LENGTH_LONG).show();
+                    edtUsr.setBackgroundResource(R.drawable.error_background);
+                    edtPwd.setBackgroundResource(R.drawable.error_background);
+                    edtPwdCf.setBackgroundResource(R.drawable.error_background);
+                }
+                else {
+                    Toast.makeText(getActivity(), "Please enter your email and password.", Toast.LENGTH_LONG).show();
+                    edtUsr.setBackgroundResource(R.drawable.error_background);
+                    edtPwd.setBackgroundResource(R.drawable.error_background);
+                    edtPwdCf.setBackgroundResource(R.drawable.edittext);
+                }
+            } else if (passwordConfirm.isEmpty()) {
+                Toast.makeText(getActivity(), "Please enter your email and password confirmation.", Toast.LENGTH_LONG).show();
+                edtUsr.setBackgroundResource(R.drawable.error_background);
+                edtPwd.setBackgroundResource(R.drawable.edittext);
+                edtPwdCf.setBackgroundResource(R.drawable.error_background);
+            } else {
+                Toast.makeText(getActivity(), "Please enter your email.", Toast.LENGTH_LONG).show();
+                edtUsr.setBackgroundResource(R.drawable.error_background);
+                edtPwd.setBackgroundResource(R.drawable.edittext);
+                edtPwdCf.setBackgroundResource(R.drawable.edittext);
+            }
             return;
-        }
-        else if (!password.equals(passwordConfirm)) {
+        } else if (password.isEmpty()) {
+            if (passwordConfirm.isEmpty()) {
+                Toast.makeText(getActivity(), "Please enter your password and its confirmation.", Toast.LENGTH_LONG).show();
+                edtUsr.setBackgroundResource(R.drawable.edittext);
+                edtPwd.setBackgroundResource(R.drawable.error_background);
+                edtPwdCf.setBackgroundResource(R.drawable.error_background);
+            } else {
+                Toast.makeText(getActivity(), "Please enter your password.", Toast.LENGTH_LONG).show();
+                edtPwd.setBackgroundResource(R.drawable.error_background);
+                edtUsr.setBackgroundResource(R.drawable.edittext);
+                edtPwdCf.setBackgroundResource(R.drawable.edittext);
+            }
+            return;
+        } else if (passwordConfirm.isEmpty()) {
+            Toast.makeText(getActivity(), "Please enter your password confirmation.", Toast.LENGTH_LONG).show();
+            edtPwdCf.setBackgroundResource(R.drawable.error_background);
+            edtUsr.setBackgroundResource(R.drawable.edittext);
+            edtPwd.setBackgroundResource(R.drawable.edittext);
+            return;
+        } else if (!password.equals(passwordConfirm)) {
             Toast.makeText(getActivity(), "Password confirmation does not match.", Toast.LENGTH_LONG).show();
+            edtUsr.setBackgroundResource(R.drawable.edittext);
+            edtPwd.setBackgroundResource(R.drawable.edittext);
+            edtPwdCf.setBackgroundResource(R.drawable.error_background);
             return;
+        } else {
+            edtUsr.setBackgroundResource(R.drawable.edittext);
+            edtPwd.setBackgroundResource(R.drawable.edittext);
+            edtPwdCf.setBackgroundResource(R.drawable.edittext);
         }
 
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            User user = new User(email);
-                            // Send data to Firebase Realtime Database, using uid as unique identity of each user
-                            FirebaseDatabase.getInstance().getReference("users")
-                                    .child(FirebaseAuth.getInstance().getUid()).setValue(user)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        if (mAuth.getCurrentUser() != null) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            View dialogView = getLayoutInflater().inflate(R.layout.dialog_verify, null);
+                            builder.setView(dialogView);
+                            AlertDialog dialog = builder.create();
+                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                            dialog.setCanceledOnTouchOutside(false);
+                            dialog.show();
+
+                            dialogView.findViewById(R.id.buttonOK).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            // Sign up success
-                                            NavHostFragment.findNavController(SignUpFragment.this)
-                                                    .navigate(ie.app.R.id.action_signUpFragment_to_signInFragment);
-                                            Toast.makeText(getActivity(), "Registered successfully!", Toast.LENGTH_LONG).show();
+                                            if (task.isSuccessful()) {
+                                                User user = new User(email);
+                                                // Send data to Firebase Realtime Database, using uid as unique identity of each user
+                                                FirebaseDatabase.getInstance().getReference("users")
+                                                        .child(mAuth.getInstance().getUid()).setValue(user)
+                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                // Sign up success
+                                                                dialog.dismiss();
+                                                                NavHostFragment.findNavController(SignUpFragment.this)
+                                                                        .navigate(ie.app.R.id.action_signUpFragment_to_signInFragment);
+                                                                Toast.makeText(getActivity(), "Registered successfully!", Toast.LENGTH_LONG).show();
+                                                            }
+                                                        });
+                                            } else {
+                                                Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                                edtUsr.setBackgroundResource(R.drawable.error_background);
+                                                edtPwd.setBackgroundResource(R.drawable.error_background);
+                                                edtPwdCf.setBackgroundResource(R.drawable.error_background);
+                                            }
                                         }
                                     });
-                        } else {
-                            // If sign up fails, display a message to the user.
-                            Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        edtUsr.setBackgroundResource(R.drawable.error_background);
+                        edtPwd.setBackgroundResource(R.drawable.error_background);
+                        edtPwdCf.setBackgroundResource(R.drawable.error_background);
                     }
                 });
     }

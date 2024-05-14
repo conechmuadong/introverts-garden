@@ -21,6 +21,10 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import ie.app.R;
 import ie.app.databinding.FragmentSignInBinding;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,6 +42,8 @@ public class SignInFragment extends Fragment {
     private FirebaseAuth mAuth;
     private EditText edtUsername, edtPassword;
     private TextView tvswitchToSignUp, tvforgotPassword;
+
+    private GoogleSignInClient googleSignInClient;
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -115,6 +121,7 @@ public class SignInFragment extends Fragment {
                         if (userEmail.isEmpty()) {
                             tvforgotPassword.setError("Email field cant be empty.");
                             Toast.makeText(getActivity(), "Please enter your registered email.", Toast.LENGTH_LONG).show();
+                            emailBox.setBackgroundResource(R.drawable.error_background);
                             return;
                         }
 
@@ -129,7 +136,7 @@ public class SignInFragment extends Fragment {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
                                     }
                                 });
                     }
@@ -147,21 +154,50 @@ public class SignInFragment extends Fragment {
                 dialog.show();
             }
         });
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("336272297460-itg9oasu1micej9f04d3r33our9mmkq1.apps.googleusercontent.com")
+                        .requestEmail().build();
+        googleSignInClient = GoogleSignIn.getClient(SignInFragment.this, gso);
+        binding.buttonGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private void authenticateUser() {
         String email = edtUsername.getText().toString();
         String password = edtPassword.getText().toString();
 
-        if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(getActivity(), "Please fill in all fields", Toast.LENGTH_LONG).show();
+        if (email.isEmpty()) {
+            if (password.isEmpty()) {
+                Toast.makeText(getActivity(), "Please fill in all fields.", Toast.LENGTH_LONG).show();
+                edtUsername.setBackgroundResource(R.drawable.error_background);
+                edtPassword.setBackgroundResource(R.drawable.error_background);
+                return;
+            } else {
+                Toast.makeText(getActivity(), "Please enter your email.", Toast.LENGTH_LONG).show();
+                edtUsername.setBackgroundResource(R.drawable.error_background);
+                edtPassword.setBackgroundResource(R.drawable.edittext);
+                return;
+            }
+        } else if (password.isEmpty()) {
+            Toast.makeText(getActivity(), "Please enter your password.", Toast.LENGTH_LONG).show();
+            edtPassword.setBackgroundResource(R.drawable.error_background);
+            edtUsername.setBackgroundResource(R.drawable.edittext);
             return;
+        } else {
+            edtPassword.setBackgroundResource(R.drawable.edittext);
+            edtUsername.setBackgroundResource(R.drawable.edittext);
         }
 
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        if (mAuth.getCurrentUser() != null && mAuth.getCurrentUser().isEmailVerified()) {
                             // Sign in success
                             Bundle bundle = new Bundle();
                             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -170,9 +206,18 @@ public class SignInFragment extends Fragment {
                                     .navigate(R.id.action_signInFragment_to_homepageFragment, bundle);
                             Toast.makeText(getActivity(), "Login successfully!", Toast.LENGTH_LONG).show();
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Please verify your email!", Toast.LENGTH_LONG).show();
+                            edtPassword.setBackgroundResource(R.drawable.edittext);
+                            edtUsername.setBackgroundResource(R.drawable.error_background);
                         }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        edtPassword.setBackgroundResource(R.drawable.error_background);
+                        edtUsername.setBackgroundResource(R.drawable.error_background);
                     }
                 });
     }
