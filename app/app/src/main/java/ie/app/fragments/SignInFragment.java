@@ -158,7 +158,7 @@ public class SignInFragment extends Fragment {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("336272297460-itg9oasu1micej9f04d3r33our9mmkq1.apps.googleusercontent.com")
                         .requestEmail().build();
-        googleSignInClient = GoogleSignIn.getClient(SignInFragment.this, gso);
+        googleSignInClient = GoogleSignIn.getClient(this.getContext(), gso);
         binding.buttonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
