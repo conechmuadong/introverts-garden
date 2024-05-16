@@ -50,6 +50,7 @@
         android:padding="10dp"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/visability"
+        android:paddingStart="10dp"
         android:paddingEnd="18dp"
         android:singleLine="true"
         android:textColor="#000000" />
@@ -62,6 +63,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="4dp"
         android:text="@string/sign_in_password"
+        android:fontFamily="@font/montserrat_bld"
         android:textColor="#000000"
         android:textSize="18sp" />
 
@@ -81,6 +83,7 @@
         android:padding="10dp"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/visability"
+        android:paddingStart="10dp"
         android:paddingEnd="18dp"
         android:singleLine="true"
         android:textColor="#000000" />
@@ -93,6 +96,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="4dp"
         android:text="@string/sign_in_password_confirmation"
+        android:fontFamily="@font/montserrat_bld"
         android:textColor="#000000"
         android:textSize="18sp" />
 
@@ -104,6 +108,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="28dp"
         android:text="@string/sign_in_mark_account"
+        android:fontFamily="@font/montserrat_bld"
         android:textColor="#000000"
         android:textSize="18sp" />
 
@@ -114,36 +119,46 @@
         android:layout_below="@id/topPanel"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="365dp"
+        android:layout_marginTop="385dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/button_green"
+        android:background="@drawable/button_sign_up_green"
         android:drawableRight="@drawable/white_arrow"
         android:text="Sign Up"
         android:textAlignment="center"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:backgroundTint="@null" />
 
-    <TextView
-        android:id="@+id/HaveAcc"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:layout_below="@id/buttonSignUp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/sign_in_mark_question"
-        android:textColor="@color/grey"
-        android:textSize="16dp"  />
+        android:layout_marginTop="20dp">
+        <TextView
+            android:id="@+id/mark_dont_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|end"
+            android:text="@string/homepage_sign_in"
+            android:textColor="#818BA0"
+            android:fontFamily="@font/montserrat"
+            android:textSize="14sp"
+            tools:ignore="RtlHardcoded"/>
 
-    <TextView
-        android:id="@+id/switchToSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonSignUp"
-        android:layout_marginStart="265dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/sign_in"
-        android:textSize="16dp"
-        android:textColor="@color/red"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/switchToSignIn"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/bold_montserrat"
+            android:gravity="center_vertical"
+            android:text="@string/sign_in"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:focusable="true"/>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -98,6 +98,7 @@
             android:textColor="@color/black"
             app:cornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailBox"
             app:layout_constraintStart_toEndOf="@id/buttonCancel"
             app:layout_constraintBottom_toBottomOf="@id/dialogBox"/>
 

@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonSignIn"
             android:layout_marginTop="15dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:text="@string/forgot_password"
             android:textColor="#818BA0"
             android:layout_centerHorizontal="true"
@@ -151,7 +151,7 @@
                 android:text="@string/sign_up_mark_question"
                 android:textColor="#818BA0"
                 android:fontFamily="@font/montserrat"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 tools:ignore="RtlHardcoded"/>
 
         <TextView
@@ -164,7 +164,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/sign_up"
                 android:textColor="@color/red"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:focusable="true"/>
     </LinearLayout>
 </RelativeLayout>
