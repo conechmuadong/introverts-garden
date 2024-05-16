@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class User {
     public String email;
+    public String name;
     ArrayList<Field> fields;
     public User() {
         fields = new ArrayList<>();
@@ -11,6 +12,10 @@ public class User {
 
     public User(String email) {
         this.email = email;
+    }
+    public User(String email, String name) {
+        this.email = email;
+        this.name = name;
     }
     public ArrayList<Field> getFields() {
         return fields;

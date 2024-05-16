@@ -69,9 +69,16 @@
     <string name="fill_email">Enter your email address...</string>
     <string name="enter_email">Enter your email address:</string>
     <string name="verify_email">Check your email for verification link!</string>
+    <string name="verify_check">Please verify your email!</string>
+    <string name="receive_verification_question">Didn\'t receive any link?</string>
+    <string name="resend_verification">
+        <u>Resend.</u>
+    </string>
     <string name="sign_in_password">Password</string>
     <string name="sign_in_password_eg">Your Password</string>
-    <string name="forgot_password">Forgot password?</string>
+    <string name="forgot_password">
+        <u>Forgot password?</u>
+    </string>
     <string name="or">Or</string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="field_list_title">Your Gardens</string>
