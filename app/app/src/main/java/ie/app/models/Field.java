@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 import ie.app.api.FirebaseAPI;
+import org.jetbrains.annotations.NotNull;
 
 public class Field {
 

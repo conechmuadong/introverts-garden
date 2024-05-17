@@ -79,10 +79,11 @@ public class MeasuredDataFragment extends BaseFragment {
         binding = null;
     }
 
+    @SuppressLint("StaticFieldLeak")
     private void getFieldByName(String name) {
         field.name = name;
         GetTask task = new GetTask(getContext());
-        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users", "/" + name);
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "/users/"+uid+"/fields/", "/" + name);
         new AsyncTask<Void, Void, MeasuredData>() {
             @Override
             protected MeasuredData doInBackground(Void... voids) {
