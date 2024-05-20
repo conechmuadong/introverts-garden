@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.widget.*;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -101,6 +102,17 @@ public class PhaseListFragment extends BaseFragment {
                 }
             }
         });
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                bundle.putString("selectedFieldName", field.getName());
+                NavHostFragment.findNavController(PhaseListFragment.this)
+                        .navigate(R.id.action_listPhase_to_CustomizedFragment, bundle);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -71,6 +72,16 @@ public class MeasuredDataFragment extends BaseFragment {
                         .navigate(R.id.action_MeasuredDataFragment_to_IrrigationFragment, bundle);
             }
         });
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(MeasuredDataFragment.this)
+                        .navigate(R.id.action_MeasuredDataFragment_to_FieldlistFragment, bundle);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     @Override

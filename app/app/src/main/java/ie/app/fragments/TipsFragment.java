@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -25,8 +26,17 @@ public class TipsFragment extends BaseFragment {
     ) {
         super.onCreateView();
         binding = FragmentTipsBinding.inflate(inflater, container, false);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(TipsFragment.this)
+                        .navigate(R.id.action_tipsFragment_to_homepageFragment, bundle);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback (callback);
         return binding.getRoot();
-
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -116,7 +126,6 @@ public class TipsFragment extends BaseFragment {
                     }
                 }
         );
-
     }
 
     @Override
