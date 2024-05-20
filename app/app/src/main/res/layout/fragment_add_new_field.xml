@@ -84,6 +84,7 @@
         android:textSize="15sp"
         android:fontFamily="@font/bold_montserrat"
         app:layout_constraintTop_toBottomOf="@+id/newFieldEditText"
+        android:letterSpacing="-0.0001"
         android:text="@string/done"/>
         <Button
                 android:id="@+id/cancel_button"
@@ -100,7 +101,8 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp"
                 android:fontFamily="@font/bold_montserrat"
+                android:letterSpacing="-0.001"
                 app:layout_constraintTop_toBottomOf="@+id/newFieldEditText"
                 android:text="@string/cancel"/>
-    </LinearLayout>
+    </LinearLayout>s
 </RelativeLayout>

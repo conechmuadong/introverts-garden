@@ -213,31 +213,35 @@
                    android:orientation="horizontal"
                    android:layout_below="@id/scaleRainEditText"
                    android:layout_marginTop="10dp">
+
                <Button
-                            android:id="@+id/updateButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/update_en"
-                            android:layout_marginStart="60dp"
-                            android:background="@drawable/button_green"
-                            app:backgroundTint="@null"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/montserrat_bld"
-                            />
+                       android:id="@+id/updateButton"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/update_en"
+                       android:layout_marginStart="80dp"
+                       android:background="@drawable/button_green"
+                       app:backgroundTint="@null"
+                       android:letterSpacing="-0.001"
+                       android:textColor="@color/white"
+                       android:fontFamily="@font/montserrat_bld"
+                       />
+
                <Button
                        android:id="@+id/next"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_toEndOf="@id/updateButton"
-                       android:layout_marginStart="20dp"
+                       android:layout_marginStart="40dp"
                        android:text="@string/stage_change_en"
                        app:backgroundTint="@null"
+                       android:letterSpacing="-0.0001"
                        android:fontFamily="@font/bold_montserrat"
                        android:background="@drawable/button_white"
                        android:textColor="#43A047"
                        android:textSize="15sp"
                        tools:ignore="RelativeOverlap"/>
-              </RelativeLayout>
+           </RelativeLayout>
        </RelativeLayout>
 
 </RelativeLayout>

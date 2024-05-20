@@ -202,6 +202,7 @@ public class SignInFragment extends Fragment {
                 }
             }
         };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     private void googleSignIn() {
