@@ -48,6 +48,9 @@
     <string name="rain">Tỉ lệ mưa: </string>
     <string name="number_holes_unit">lỗ</string>
     <string name="humidity">Humidity</string>
+    <string name="reset">Reset</string>
+    <string name="ok">OK</string>
+    <string name="change">Change</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="adjust">Điều chỉnh</string>
@@ -130,5 +133,18 @@
     <string name="new_phase">Add new phase</string>
     <string name="add_phase">Add phase</string>
 
+    <string name="English">English</string>
+    <string name="Vietnamese">Tiếng Việt</string>
 
+    <string name="change_pwd">Change Password</string>
+    <string name="language">Language</string>
+    <string name="logout">Log Out</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="email_verification">Email Verification</string>
+    <string name="verify_email_title">Verify Your Email</string>
+    <string name="enter_old_pwd">Enter your current password:</string>
+    <string name="enter_new_pwd">Enter your new password:</string>
+    <string name="confirm_new_pwd">Confirm your new password:</string>
+    <string name="old_pwd">Current Password</string>
+    <string name="new_pwd">New Password</string>
 </resources>
