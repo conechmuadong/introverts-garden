@@ -2,8 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="uncheckedBox">#EAEAEA</color>
     <color name="red">#FA4D5E</color>
+    <color name="red_background">#FFD7DD</color>
     <color name="grey">#818BA0</color>
+    <color name="grey_icon">#8B9DB7</color>
     <color name="colorPrimary">#2CAB69</color>
     <color name="disable">#A7D4BC</color>
     <color name="button_green">#4BC384</color>

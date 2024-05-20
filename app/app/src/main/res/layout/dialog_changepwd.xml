@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    android:id="@+id/dialogChangePwd"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogBox"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/notibox" >
+
+        <TextView
+            android:id="@+id/changePwdTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change_pwd"
+            android:fontFamily="@font/montserrat_bld"
+            android:textAlignment="center"
+            android:padding="20dp"
+            android:textSize="20sp"
+            android:background="@drawable/small_button_green"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/enterOldPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/changePwdTitle"
+            app:layout_constraintTop_toBottomOf="@id/changePwdTitle"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/enter_old_pwd"
+            android:textColor="#000000"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/oldPwdBox"
+            android:inputType="textPassword"
+            android:layout_width="290dp"
+            android:layout_height="41dp"
+            android:layout_below="@id/enterOldPwd"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/edittext"
+            android:drawableStart="@drawable/key"
+            android:drawableEnd="@drawable/visability"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/old_pwd"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enterOldPwd" />
+
+        <TextView
+            android:id="@+id/enterNewPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/oldPwdBox"
+            app:layout_constraintTop_toBottomOf="@id/oldPwdBox"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/enter_new_pwd"
+            android:textColor="#000000"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/newPwdBox"
+            android:inputType="textPassword"
+            android:layout_width="290dp"
+            android:layout_height="41dp"
+            android:layout_below="@id/enterNewPwd"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/edittext"
+            android:drawableStart="@drawable/key"
+            android:drawableEnd="@drawable/visability"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/new_pwd"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enterNewPwd" />
+
+        <TextView
+            android:id="@+id/confirmNewPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/oldPwdBox"
+            app:layout_constraintTop_toBottomOf="@id/newPwdBox"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/confirm_new_pwd"
+            android:textColor="#000000"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/confirmNewPwdBox"
+            android:inputType="textPassword"
+            android:layout_width="290dp"
+            android:layout_height="41dp"
+            android:layout_below="@id/enterNewPwd"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/edittext"
+            android:drawableStart="@drawable/key"
+            android:drawableEnd="@drawable/visability"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/new_pwd"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmNewPwd" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_white"
+            app:backgroundTint="@null"
+            android:text="@string/cancel"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:cornerRadius="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmNewPwdBox"
+            app:layout_constraintEnd_toStartOf="@id/buttonChange"
+            app:layout_constraintBottom_toBottomOf="@id/dialogBox"/>
+
+        <Button
+            android:id="@+id/buttonChange"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/small_button_green"
+            app:backgroundTint="@null"
+            android:text="@string/change"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmNewPwdBox"
+            app:layout_constraintStart_toEndOf="@id/buttonCancel"
+            app:layout_constraintBottom_toBottomOf="@id/dialogBox"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,9 +46,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.Nullable;
-
-import java.util.HashMap;
-
 public class SignInFragment extends Fragment {
     private FragmentSignInBinding binding;
     private FirebaseAuth mAuth;
