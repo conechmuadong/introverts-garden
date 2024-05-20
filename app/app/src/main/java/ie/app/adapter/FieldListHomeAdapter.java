@@ -39,7 +39,8 @@ public class FieldListHomeAdapter extends ArrayAdapter<Field> {
         TextView fieldName = (TextView) convertView.findViewById(R.id.field_name);
         fieldName.setText(field.getName());
 
-        ImageView garden = (ImageView) convertView.findViewById(R.id.garden_icon);
+//        ImageView garden = (ImageView) convertView.findViewById(R.id.garden_icon);
+        RelativeLayout garden = (RelativeLayout) convertView.findViewById(R.id.garden_container);
         garden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

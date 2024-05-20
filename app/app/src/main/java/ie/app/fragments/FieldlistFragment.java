@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Tasks;
 import java.util.List;
 import java.util.Objects;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import ie.app.R;
 import ie.app.adapter.FieldListAdapter;
 import ie.app.api.FirebaseAPI;
@@ -58,6 +59,34 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        BottomNavigationView navView = binding.bottomNavigation;
+        navView.setSelectedItemId(R.id.garden_button);
+        navView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.home_button) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(FieldlistFragment.this)
+                        .navigate(R.id.action_fieldlistFragment_to_homepageFragment);
+                return true;
+            } else if (item.getItemId() == R.id.garden_button) {
+                return true;
+            } else if (item.getItemId() == R.id.tips_button) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(FieldlistFragment.this)
+                        .navigate(R.id.action_fieldlistFragment_to_tipsFragment);
+                return true;
+            }
+            else if (item.getItemId() == R.id.setting_button) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(FieldlistFragment.this)
+                        .navigate(R.id.action_FieldlistFragment_to_settingsFragment);
+                return true;
+            }
+            return false;
+        });
 
         listener = new OnFieldSelectedListener() {
             @Override
@@ -124,8 +153,8 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
         });
 
         builder.setPositiveButton("Có", (DialogInterface.OnClickListener) (dialog, which) -> {
-            FirebaseAPI.deleteField("users" + uid +"/fields", field.getName());
-            new GetAllTask(getContext()).execute("/users+"+ uid +"/fields");
+            FirebaseAPI.deleteField("users/" + uid +"/fields/", field.getName());
+            new GetAllTask(getContext()).execute("users/"+uid+"/fields");
         });
 
         // Create the Alert dialog
@@ -185,5 +214,7 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
             Log.e("AsyncTask", "An error occurred while getting data");
         }
     }
+
+
 
 }

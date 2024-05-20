@@ -11,5 +11,5 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"/>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/content_main"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

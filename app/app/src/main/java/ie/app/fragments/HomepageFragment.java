@@ -1,5 +1,6 @@
 package ie.app.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -27,6 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import ie.app.R;
 import ie.app.adapter.FieldListAdapter;
 import ie.app.adapter.FieldListHomeAdapter;
@@ -75,6 +78,7 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
         return "Mon, Jan 01, 2021";
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -106,6 +110,35 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
                 NavHostFragment.findNavController(HomepageFragment.this)
                         .navigate(R.id.action_homepageFragment_to_tipsFragment);
             }
+        });
+        BottomNavigationView bottomNavigationView = binding.bottomNavigation;
+        bottomNavigationView.setSelectedItemId(R.id.home_button);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if(item.getItemId()==R.id.home_button) {
+                return true;
+            }
+            else if(item.getItemId()==R.id.garden_button) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(HomepageFragment.this)
+                        .navigate(R.id.action_homepageFragment_to_FieldlistFragment, bundle);
+                return true;
+            }
+            else if(item.getItemId()==R.id.tips_button) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(HomepageFragment.this)
+                        .navigate(R.id.action_homepageFragment_to_tipsFragment, bundle);
+                return true;
+            }
+            else if(item.getItemId()==R.id.setting_button) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(HomepageFragment.this)
+                        .navigate(R.id.action_homepageFragment_to_settingsFragment);
+                return true;
+            }
+            return false;
         });
     }
 

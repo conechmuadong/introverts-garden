@@ -44,6 +44,17 @@
             app:exitAnim="@anim/to_right_out"
             app:popEnterAnim="@anim/to_left_in"
             app:popExitAnim="@anim/to_left_out" />
+        <action
+                android:id="@+id/action_fieldlistFragment_to_tipsFragment"
+                app:destination="@id/tipsFragment"
+                />
+        <action
+                android:id="@+id/action_fieldlistFragment_to_homepageFragment"
+                app:destination="@id/homepageFragment"
+                />
+        <action
+                android:id="@+id/action_FieldlistFragment_to_settingsFragment"
+                app:destination="@id/settingsFragment"/>
 
     </fragment>
 
@@ -104,6 +115,13 @@
         <action
                 android:id="@+id/action_listPhase_to_CustomizedFragment"
                 app:destination="@id/CustomizedFragment"
+                app:enterAnim="@anim/to_left_in"
+                app:exitAnim="@anim/to_left_out"
+                app:popEnterAnim="@anim/to_right_in"
+                app:popExitAnim="@anim/to_right_out"/>
+        <action
+                android:id="@+id/action_listPhase_to_tipsFragment"
+                app:destination="@id/tipsFragment"
                 app:enterAnim="@anim/to_left_in"
                 app:exitAnim="@anim/to_left_out"
                 app:popEnterAnim="@anim/to_right_in"
@@ -175,10 +193,7 @@
         <action
                 android:id="@+id/action_homepageFragment_to_FieldlistFragment"
                 app:destination="@id/FieldlistFragment"
-                app:popExitAnim="@anim/to_left_out"
-                app:popEnterAnim="@anim/to_left_in"
-                app:exitAnim="@anim/to_right_out"
-                app:enterAnim="@anim/to_right_in"/>
+                />
         <action
                 android:id="@+id/action_homepageFragment_to_MeasuredDataFragment"
                 app:destination="@id/MeasuredDataFragment"
@@ -189,10 +204,7 @@
         <action
                 android:id="@+id/action_homepageFragment_to_tipsFragment"
                 app:destination="@id/tipsFragment"
-                app:enterAnim="@anim/to_left_in"
-                app:exitAnim="@anim/to_left_out"
-                app:popEnterAnim="@anim/to_right_in"
-                app:popExitAnim="@anim/to_right_out"/>
+                />
         <action
                 android:id="@+id/action_homepageFragment_to_videoShowFragment"
                 app:destination="@id/videoShowFragment"
@@ -200,6 +212,9 @@
                 app:exitAnim="@anim/to_left_out"
                 app:popEnterAnim="@anim/to_right_in"
                 app:popExitAnim="@anim/to_right_out"/>
+        <action
+                android:id="@+id/action_homepageFragment_to_settingsFragment"
+                app:destination="@id/settingsFragment"/>
     </fragment>
     <fragment
             android:id="@+id/tipsFragment"
@@ -212,6 +227,17 @@
                 app:exitAnim="@anim/to_left_out"
                 app:popEnterAnim="@anim/to_right_in"
                 app:popExitAnim="@anim/to_right_out"/>
+        <action
+                android:id="@+id/action_tipsFragment_to_homepageFragment"
+                app:destination="@id/homepageFragment"
+                />
+        <action
+                android:id="@+id/action_tipsFragment_to_fieldlistFragment"
+                app:destination="@id/FieldlistFragment"
+                />
+        <action
+                android:id="@+id/action_tipsFragment_to_settingsFragment"
+                app:destination="@id/settingsFragment"/>
     </fragment>
     <fragment
             android:id="@+id/videoShowFragment"
@@ -245,6 +271,24 @@
         <action
             android:id="@+id/action_signUpFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/settingsFragment"
+            android:name="ie.app.fragments.SettingsFragment"
+            android:label="fragment_settings"
+            tools:layout="@layout/fragment_settings">
+        <action
+                android:id="@+id/action_settingsFragment_to_WelcomeFragment"
+                app:destination="@id/WelcomeFragment"/>
+        <action
+                android:id="@+id/action_settingsFragment_to_FieldlistFragment"
+                app:destination="@id/FieldlistFragment"/>
+        <action
+                android:id="@+id/action_settingsFragment_to_homepageFragment"
+                app:destination="@id/homepageFragment"/>
+        <action
+                android:id="@+id/action_settingsFragment_to_tipsFragment"
+                app:destination="@id/tipsFragment"/>
     </fragment>
 
 </navigation>
