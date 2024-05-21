@@ -12,48 +12,64 @@
     <LinearLayout
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:background="@drawable/topplant"
         android:orientation="vertical"
         />
+
     <LinearLayout
-        android:id="@+id/avatar_background"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/avatar_background"
-        android:padding="5dp">
-        <ImageButton
-            android:id="@+id/avatar"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/horse"
-            android:background="@drawable/roundcorner"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="changeAva"/>
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:gravity="center"
+        android:background="@null" >
+
+        <LinearLayout
+            android:id="@+id/avatar_background"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/avatar_background"
+            android:padding="5dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/avatar_container"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="10dp" >
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ava"
+                    android:layout_centerHorizontal="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/avatar_background"
+        android:layout_below="@+id/topPanel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="nguyenthuhien.forschool@gmail.com"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/montserrat_bld"
         android:textColor="#000000"
         android:textSize="20sp" />
-    
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonChangePwd"
         android:layout_width="338dp"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/topPanel"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="80dp"
         android:background="@drawable/button_settings_white"
         app:backgroundTint="@null"
         android:drawableStart="@drawable/changepwd_icon"
@@ -73,10 +89,11 @@
     <RelativeLayout
         android:id="@+id/language_button_container"
         android:background="@drawable/fieldname_background"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/buttonChangePwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonLanguage"
             android:layout_width="338dp"
@@ -84,6 +101,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/button_settings_white"
             app:backgroundTint="@null"
+            android:layout_marginBottom="2dp"
             android:drawableStart="@drawable/language_icon"
             android:drawableEnd="@drawable/right_arrow"
             android:drawablePadding="10dp"
@@ -105,12 +123,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/language_select"
+            android:background="@drawable/language_not_select"
             app:backgroundTint="@null"
             android:text="@string/English"
-            android:textAlignment="center"
+            android:gravity="center"
+            android:letterSpacing="-0.001"
             android:fontFamily="@font/manrope_bold"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textColor="@color/black"
             android:layout_below="@id/buttonLanguage"
             />
@@ -121,17 +140,18 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
+            android:layout_marginBottom="2dp"
             android:layout_alignParentEnd="true"
             android:background="@drawable/language_not_select"
             app:backgroundTint="@null"
             android:text="@string/Vietnamese"
             android:textAlignment="center"
+            android:letterSpacing="-0.001"
             android:fontFamily="@font/manrope_bold"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textColor="@color/black"
             android:layout_below="@id/English"
             />
-
     </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -140,7 +160,7 @@
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/language_button_container"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/logout_background"
         app:backgroundTint="@null"
         android:drawableStart="@drawable/logout_icon"
@@ -156,25 +176,25 @@
         android:fontFamily="@font/manrope_bold"
         app:rippleColor="@color/grey_icon"
         />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bottom_navigation"
-            android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        android:layout_alignParentBottom="true"
 
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/navigation_bar_background"
-            android:elevation="2dp"
-            android:layout_marginTop="10dp"
-            android:foreground="@null"
-            app:menu="@menu/navigation_bar"
-            app:itemIconSize="30dp"
-            app:itemIconTint="@drawable/item_selector"
-            app:itemRippleColor="@color/colorPrimary"
-            app:labelVisibilityMode="unlabeled"
-            app:itemBackground="@drawable/background_selector"
-            />
-
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/navigation_bar_background"
+        android:elevation="2dp"
+        android:layout_marginTop="10dp"
+        android:foreground="@null"
+        app:menu="@menu/navigation_bar"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@color/colorPrimary"
+        app:labelVisibilityMode="unlabeled"
+        app:itemBackground="@drawable/background_selector"
+        />
 </RelativeLayout>

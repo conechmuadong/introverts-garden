@@ -32,6 +32,7 @@
             app:backgroundTint="@null"
             android:textColor="@color/background_homepage"
             android:textStyle="bold"
+            android:letterSpacing="-0.001"
             android:fontFamily="@font/montserrat_bld"
             android:drawableEnd="@drawable/stoke_arrow"
             />

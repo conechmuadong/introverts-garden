@@ -278,6 +278,7 @@
         android:layout_width="200dp"
         android:layout_height="56dp"
         android:textSize="18sp"
+        android:letterSpacing="-0.001"
         android:fontFamily="@font/montserrat_bld"
         android:layout_gravity="center_horizontal"
         android:text="@string/update_en" />

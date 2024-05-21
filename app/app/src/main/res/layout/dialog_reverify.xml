@@ -42,7 +42,7 @@
             android:text="@string/verify_check"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="19sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/reVerifyTitle" />
@@ -60,7 +60,7 @@
             android:text="@string/ok"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="17sp"
             app:backgroundTint="@null"
             app:cornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="@id/dialogBox"
@@ -91,7 +91,7 @@
                 android:gravity="center_vertical|end"
                 android:text="@string/receive_verification_question"
                 android:textColor="#818BA0"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -105,7 +105,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/resend_verification"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

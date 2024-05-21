@@ -270,6 +270,7 @@
             android:layout_marginTop="40dp"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/montserrat_bld"
+            android:letterSpacing="-0.001"
             android:text="@string/control"
             android:textSize="20sp"
             android:textColor="@color/white"/>

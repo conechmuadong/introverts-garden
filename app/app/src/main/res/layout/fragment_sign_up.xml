@@ -123,7 +123,8 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/button_sign_up_green"
         android:drawableRight="@drawable/white_arrow"
-        android:text="Sign Up"
+        android:letterSpacing="-0.001"
+        android:text="@string/sign_up_title"
         android:textAlignment="center"
         android:textSize="18sp"
         app:backgroundTint="@null" />
