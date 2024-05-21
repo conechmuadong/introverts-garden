@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import android.widget.Toast;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 
 import androidx.navigation.fragment.NavHostFragment;
@@ -228,7 +229,16 @@ public class IrrigationSettingFragment extends BaseFragment {
             }, hour, min, true);
             timePickerDialog.show();
         });
-
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(IrrigationSettingFragment.this)
+                        .navigate(R.id.action_IrrigationSettingFragment_to_MeasuredDataFragment, bundle);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
         binding.updateButton.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View view) {

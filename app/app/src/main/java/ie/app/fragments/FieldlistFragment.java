@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -109,6 +110,15 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
         Bundle bundle = getArguments();
         addBtn.setOnClickListener(v -> NavHostFragment.findNavController(FieldlistFragment.this)
                 .navigate(R.id.action_FieldlistFragment_to_AddNewFieldFragment, bundle));
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                NavHostFragment.findNavController(FieldlistFragment.this)
+                        .navigate(R.id.action_fieldlistFragment_to_homepageFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     @Override
@@ -214,7 +224,4 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
             Log.e("AsyncTask", "An error occurred while getting data");
         }
     }
-
-
-
 }

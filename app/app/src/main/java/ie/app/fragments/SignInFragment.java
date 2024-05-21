@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -54,12 +55,13 @@ public class SignInFragment extends Fragment {
     private TextView tvswitchToSignUp, tvforgotPassword;
     private GoogleSignInClient googleSignInClient;
     int RC_SIGN_IN = 20;
+    private boolean exitPressedOnce = false;
 
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
+        exitPressedOnce = false;
         binding = FragmentSignInBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -79,6 +81,7 @@ public class SignInFragment extends Fragment {
         edtPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                exitPressedOnce = false;
                 if (edtPassword.getTransformationMethod().equals(HideReturnsTransformationMethod.getInstance())) {
                     // If password is visible then hide it
                     edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
@@ -96,6 +99,7 @@ public class SignInFragment extends Fragment {
         binding.buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                exitPressedOnce = false;
                 authenticateUser();
             }
         });
@@ -113,6 +117,7 @@ public class SignInFragment extends Fragment {
         tvforgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                exitPressedOnce = false;
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot, null);
                 EditText emailBox = dialogView.findViewById(R.id.emailBox);
@@ -181,9 +186,23 @@ public class SignInFragment extends Fragment {
         binding.buttonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                exitPressedOnce = false;
                 googleSignIn();
             }
         });
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (exitPressedOnce) {
+                    getActivity().finish();
+                }
+                else {
+                    Toast.makeText(getContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    exitPressedOnce = true;
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     private void googleSignIn() {

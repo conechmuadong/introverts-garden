@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -105,6 +106,16 @@ public class CustomizedFragment extends BaseFragment implements AdapterView.OnIt
                         .navigate(R.id.action_CustomizedFragment_to_listPhase, bundle);
             }
         });
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(CustomizedFragment.this)
+                        .navigate(R.id.action_CustomizedFragment_to_FieldlistFragment, bundle);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     @Override

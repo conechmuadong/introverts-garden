@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -47,6 +48,7 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
     private FragmentHomepageBinding binding;
     private FieldListHomeAdapter adapter;
     private OnFieldSelectedListener listener;
+    private boolean exitPressedOnce;
 
     @Override
     public View onCreateView(
@@ -55,6 +57,7 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
     ) {
 //        Bundle bundle = getArguments();
         super.onCreateView();
+        exitPressedOnce = false;
         binding = FragmentHomepageBinding.inflate(inflater, container, false);
         TextView textView = binding.date;
         textView.setText(getCurrentDate());
@@ -140,6 +143,20 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
             }
             return false;
         });
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (exitPressedOnce) {
+                    getActivity().finish();
+                }
+                else {
+                    Toast.makeText(getContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    exitPressedOnce = true;
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     @Override

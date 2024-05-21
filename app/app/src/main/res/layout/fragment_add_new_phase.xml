@@ -152,12 +152,13 @@
             >
         <Button
                 android:id="@+id/addPhaseButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
                 android:text="@string/add_phase"
-                android:letterSpacing="-0.001"
-                android:textSize="18sp"
-                android:fontFamily="@font/manrope_bold"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bld"
+                android:letterSpacing="0"
                 android:background="@drawable/btn_green"
                 android:textColor="#FFFFFF"
                 />
