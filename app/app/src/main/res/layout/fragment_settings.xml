@@ -39,11 +39,12 @@
                 android:layout_height="80dp"
                 app:cardCornerRadius="10dp" >
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/avatar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/ava"
+                    android:background="@null"
                     android:layout_centerHorizontal="true"
                     android:clickable="true"
                     android:focusable="true"

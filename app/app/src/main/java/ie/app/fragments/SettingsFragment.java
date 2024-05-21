@@ -2,10 +2,12 @@ package ie.app.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -61,7 +63,8 @@ public class SettingsFragment extends BaseFragment {
     private String username;
     public boolean isSignInWithGoogle;
     private Button changePwdBtn, logOutBtn, languageBtn, engBtn, vietBtn;
-    private ImageView avatarBtn;
+    private ImageButton avatarBtn;
+    public static final int PICK_IMAGE = 1;
 
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -75,6 +78,7 @@ public class SettingsFragment extends BaseFragment {
         logOutBtn = binding.buttonLogOut;
         engBtn = binding.English;
         vietBtn = binding.Vietnamese;
+        avatarBtn = binding.avatar;
         engBtn.setVisibility(View.GONE);
         vietBtn.setVisibility(View.GONE);
         return binding.getRoot();
@@ -86,11 +90,10 @@ public class SettingsFragment extends BaseFragment {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        avatarBtn = getActivity().findViewById(R.id.avatar);
         avatarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                imageChooser();
             }
         });
 
@@ -474,5 +477,20 @@ public class SettingsFragment extends BaseFragment {
         Configuration config = resources.getConfiguration();
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
+    }
+
+    public void imageChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE) {
+            Uri selectedImageUri = data.getData();
+            avatarBtn.setImageURI(selectedImageUri);
+        }
     }
 }
