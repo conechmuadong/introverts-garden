@@ -5,8 +5,8 @@
         android:color="@color/button_green"
         />
     <stroke
-        android:color="@color/border"
+        android:color="@color/border_lang"
         android:width="2dp"
         />
-    <corners android:radius="15dp"/>
+    <corners android:radius="10dp"/>
 </shape>

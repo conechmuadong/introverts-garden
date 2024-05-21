@@ -215,6 +215,7 @@
                    android:layout_marginTop="10dp">
 
                <Button
+
                        android:id="@+id/updateButton"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -225,8 +226,7 @@
                        android:letterSpacing="-0.001"
                        android:textColor="@color/white"
                        android:fontFamily="@font/montserrat_bld"
-                       />
-
+                     
                <Button
                        android:id="@+id/next"
                        android:layout_width="wrap_content"
@@ -234,6 +234,7 @@
                        android:layout_toEndOf="@id/updateButton"
                        android:layout_marginStart="40dp"
                        android:text="@string/stage_change_en"
+                       android:letterSpacing="-0.001"
                        app:backgroundTint="@null"
                        android:letterSpacing="-0.0001"
                        android:fontFamily="@font/bold_montserrat"

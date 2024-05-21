@@ -11,6 +11,7 @@
     <color name="disable">#A7D4BC</color>
     <color name="button_green">#4BC384</color>
     <color name="border">#3AC23A</color>
+    <color name="border_lang">#69CC96</color>
     <color name="background">#EDF4ED</color>
     <color name="background_homepage">#2CAB69</color>
     <color name="transparent">#80000000</color>

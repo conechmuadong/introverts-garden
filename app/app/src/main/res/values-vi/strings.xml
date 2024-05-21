@@ -1,0 +1,155 @@
+<resources>
+    <string name="app_name">IntrovertGarden</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="homepage_fragment_label">Trang chủ</string>
+    <string name="fieldlist_fragment_label">Danh sách cánh đồng</string>
+    <string name="measureddata_fragment_label">Tình trạng</string>
+    <string name="irrigation_fragment_label">Cài đặt tưới</string>
+    <string name="customized_fragment_label">Điều chỉnh</string>
+    <string name="phaseList_fragment_label_en">Các giai đoạn</string>
+
+    <string name="Logo">Logo</string>
+    <string name="add">Tạo</string>
+    <string name="getting_started">Chăm sóc khu vườn của bạn</string>
+    <string name="homepage_sign_in">Đã có tài khoản?</string>
+    <string name="sign_in">
+        <u>Đăng Nhập.</u>
+    </string>
+    <string name="sign_up">
+        <u>Đăng Ký.</u>
+    </string>
+    <string name="sign_up_mark_question">Không có tài khoản?</string>
+    <string name="project_name">Introverts\' Garden</string>
+    <string name="introduction">Start caring your garden with our smart solutions.</string>
+    <string name="start_time">Thời gian bắt đầu tưới</string>
+    <string name="end_time">Thời gian kết thúc tưới</string>
+    <string name="end_time_en">Thời gian kết thúc tưới</string>
+    <string name="amount_water">Lượng nước tưới</string>
+    <string name="water_unit">l/m²</string>
+
+    <string name="waterButton">Tưới cây!</string>
+    <string name="manualButton">Thủ công</string>
+    <string name="autoButton">Tự động</string>
+
+    <string name="area">Diện tích:</string>
+    <string name="area_unit">m²</string>
+    <string name="drip_unit">ml/s</string>
+    <string name="rain_unit">%</string>
+    <string name="distance_unit">m</string>
+    <string name="percent_unit">%</string>
+    <string name="number_holes">Tổng số lỗ tưới:</string>
+    <string name="distance_holes">Khoảng cách giữa hai lỗ:</string>
+    <string name="distance_row">Khoảng cách giữa hai hàng:</string>
+    <string name="drip_rate">Tốc độ nhỏ giọt: </string>
+    <string name="fer_level">Cấp độ bón phân: </string>
+    <string name="rain">Tỉ lệ mưa: </string>
+    <string name="number_holes_unit">lỗ</string>
+    <string name="humidity">Độ Ẩm</string>
+    <string name="reset">Đổi</string>
+    <string name="ok">OK</string>
+    <string name="change">Đặt Lại</string>
+    <string name="cancel">Hủy</string>
+    <string name="delete">Xóa</string>
+    <string name="adjust">Điều chỉnh</string>
+    <string name="status">Tình trạng</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Tên</string>
+    <string name="insert_new_name">Nhập tên cánh đồng:</string>
+    <string name="done">Xong</string>
+    <string name="cant_blank">Không được để trống</string>
+    <string name="update">Cập nhật</string>
+    <string name="date_insert">YYYY-MM-YY</string>
+    <string name="start_date_insert">Nhập ngày bắt đầu</string>
+    <string name="end_date_insert">Nhập ngày kết thúc</string>
+    <string name="humid_insert">Nhập độ ẩm</string>
+    <string name="sign_in_password_confirmation">Nhập lại mật khẩu</string>
+    <string name="sign_in_mark_question">Đã có tài khoản?</string>
+    <string name="sign_in_mark_account">Email</string>
+    <string name="sign_in_acc_eg">extroverts@gmail.com</string>
+    <string name="fill_email">Nhập địa chỉ email…</string>
+    <string name="enter_email">Nhập địa chỉ email của bạn:</string>
+    <string name="verify_email">Tìm liên kết xác minh trong email của bạn!</string>
+    <string name="verify_check">Hãy xác minh mail của bạn!</string>
+    <string name="receive_verification_question">Không nhận được liên kết?</string>
+    <string name="resend_verification">
+        <u>Gửi lại.</u>
+    </string>
+    <string name="sign_in_password">Mật khẩu</string>
+    <string name="sign_in_password_eg">Your Password</string>
+    <string name="forgot_password">
+        <u>Quên mật khẩu?</u>
+    </string>
+    <string name="or">Hoặc</string>
+    <string name="sign_in_with_google">Đăng nhập bằng Google</string>
+    <string name="field_list_title">Vườn của bạn</string>
+    <string name="new_field">Trồng vườn mới</string>
+    <string name="new_field_name">Tên vườn mới</string>
+    <string name="hint_new_field_name">Đặt tên cho vườn của bạn</string>
+    <string name="view">Xem</string>
+    <string name="edit">Điều Chỉnh\n</string>
+    <string name="area_en">Diện tích</string>
+    <string name="number_holes_en">Số lỗ tưới</string>
+    <string name="no_of_holes_en">Tổng số lỗ</string>
+    <string name="distance_holes_en">Khoảng cách giữa hai lỗ</string>
+    <string name="distance_row_en">Khoảng cách giữa hai hàng</string>
+    <string name="drip_rate_en">Tốc độ tưới nhỏ giọt</string>
+    <string name="rain_en">Lượng mưa</string>
+    <string name="update_en">Cập nhật</string>
+    <string name="stage_change_en">Chỉnh giai đoạn</string>
+    <string name="radiation">Bức Xạ</string>
+    <string name="rad_s">rad/s</string>
+    <string name="calcius">°C</string>
+    <string name="temperature">Nhiệt Độ</string>
+    <string name="kPa">kPa</string>
+    <string name="soil_moisture">Độ ẩm\nĐất</string>
+    <string name="percent">%</string>
+    <string name="control">Tưới nước</string>
+    <string name="end_date">Ngày kết thúc</string>
+    <string name="start_date">Ngày bắt đầu</string>
+    <string name="hello">Xin chào!</string>
+    <string name="gardens">Vườn</string>
+    <string name="more">Thêm</string>
+    <string name="garden">Vườn</string>
+    <string name="tips">Mẹo Vặt</string>
+    <string name="tip1_title">Apartment Balcony Garden | designing with plants</string>
+    <string name="tip1_author">benjiplant</string>
+    <string name="tip2_title">Turning my balcony into a cosy paradise ☁️ | DIY Balcony Makeover</string>
+    <string name="tip2_author">cloudyhills</string>
+    <string name="tip3_title">Growing Rosemary is SO Easy</string>
+    <string name="tip3_author">Epic Gardening</string>
+    <string name="adjust_en">Điều Chỉnh</string>
+    <string name="tips_for_garden">Mẹo vặt cho \nvườn của bạn</string>
+    <string name="tip5_title">How to Grow Rosemary at Home | All About Classic Aromatic Herb Rosemary</string>
+    <string name="tip5_author">Garden Vibes</string>
+    <string name="tip4_title">Bok Choy - Best Growing and Harvesting Tips | Maximum Production</string>
+    <string name="tip4_author">GreenTGarden</string>
+    <string name="measureddata_fragment_label_en">Tình trạng</string>
+    <string name="irrigation_start_time_title">Thời gian bắt đầu tưới</string>
+    <string name="irrigation_amount_time_title">Thời lượng</string>
+    <string name="start_time_en">Thời gian</string>
+    <string name="new_phase">Thêm giai đoạn mới</string>
+    <string name="add_phase">Thêm giai đoạn</string>
+
+    <string name="English">English</string>
+    <string name="Vietnamese">Tiếng Việt</string>
+
+    <string name="sign_in_title">Đăng Nhập</string>
+    <string name="sign_up_title">Đăng Ký</string>
+    <string name="change_pwd">Đổi Mật Khẩu</string>
+    <string name="change_username_title">Đổi Tên Người Dùng</string>
+    <string name="change_username">Nhập tên người dùng mới:</string>
+    <string name="username">Tên người dùng</string>
+    <string name="language">Ngôn Ngữ</string>
+    <string name="logout">Đăng Xuất</string>
+    <string name="logout_confirm">Bạn có chắc muốn\nđăng xuất không?</string>
+    <string name="forgot_password_title">Quên Mật Khẩu</string>
+    <string name="email_verification">Xác Minh Mail</string>
+    <string name="verify_email_title">Xác Minh Mail</string>
+    <string name="enter_old_pwd">Nhập mật khẩu hiện tại:</string>
+    <string name="enter_new_pwd">Nhập mật khẩu mới:</string>
+    <string name="confirm_new_pwd">Xác nhận mật khẩu mới:</string>
+    <string name="old_pwd">Mật khẩu hiện tại</string>
+    <string name="new_pwd">Mật khẩu mới</string>
+</resources>

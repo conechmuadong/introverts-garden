@@ -98,7 +98,7 @@
     <string name="drip_rate_en">Drip rate</string>
     <string name="rain_en">Rain scale</string>
     <string name="update_en">Update</string>
-    <string name="stage_change_en">Adjust stage</string>
+    <string name="stage_change_en">Adjust phase</string>
     <string name="radiation">Radiation</string>
     <string name="rad_s">rad/s</string>
     <string name="calcius">°C</string>
@@ -128,7 +128,7 @@
     <string name="tip4_author">GreenTGarden</string>
     <string name="measureddata_fragment_label_en">Measured data</string>
     <string name="irrigation_start_time_title">Start time</string>
-    <string name="irrigation_amount_time_title">Time amount</string>
+    <string name="irrigation_amount_time_title">Duration</string>
     <string name="start_time_en">Start time</string>
     <string name="new_phase">Add new phase</string>
     <string name="add_phase">Add phase</string>
@@ -136,9 +136,15 @@
     <string name="English">English</string>
     <string name="Vietnamese">Tiếng Việt</string>
 
+    <string name="sign_in_title">Sign In</string>
+    <string name="sign_up_title">Sign Up</string>
     <string name="change_pwd">Change Password</string>
+    <string name="change_username_title">Change Your Username</string>
+    <string name="change_username">Enter your new username:</string>
+    <string name="username">Username</string>
     <string name="language">Language</string>
     <string name="logout">Log Out</string>
+    <string name="logout_confirm">Are you sure you want\nto log out?</string>
     <string name="forgot_password_title">Forgot Password</string>
     <string name="email_verification">Email Verification</string>
     <string name="verify_email_title">Verify Your Email</string>
