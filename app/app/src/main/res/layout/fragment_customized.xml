@@ -226,6 +226,7 @@
                        android:letterSpacing="-0.001"
                        android:textColor="@color/white"
                        android:fontFamily="@font/montserrat_bld"
+                       />
                      
                <Button
                        android:id="@+id/next"
@@ -234,7 +235,6 @@
                        android:layout_toEndOf="@id/updateButton"
                        android:layout_marginStart="40dp"
                        android:text="@string/stage_change_en"
-                       android:letterSpacing="-0.001"
                        app:backgroundTint="@null"
                        android:letterSpacing="-0.0001"
                        android:fontFamily="@font/bold_montserrat"

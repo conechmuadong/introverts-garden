@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -79,8 +80,26 @@ public class SettingsFragment extends BaseFragment {
         engBtn = binding.English;
         vietBtn = binding.Vietnamese;
         avatarBtn = binding.avatar;
-        engBtn.setVisibility(View.GONE);
-        vietBtn.setVisibility(View.GONE);
+        Bundle bundle = getArguments();
+        String language_changes = null;
+        if (bundle != null) {
+             language_changes = bundle.getString("language");
+        }
+        if (language_changes == null) {
+            engBtn.setVisibility(View.GONE);
+            vietBtn.setVisibility(View.GONE);
+        } else {
+            engBtn.setVisibility(View.VISIBLE);
+            vietBtn.setVisibility(View.VISIBLE);
+            languageBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.language_icon, 0, R.drawable.down_arrow, 0);
+            if (language_changes.equals("en")) {
+                engBtn.setBackgroundResource(R.drawable.language_select);
+                vietBtn.setBackgroundResource(R.drawable.language_not_select);
+            } else {
+                vietBtn.setBackgroundResource(R.drawable.language_select);
+                engBtn.setBackgroundResource(R.drawable.language_not_select);
+            }
+        }
         return binding.getRoot();
     }
 
@@ -376,36 +395,36 @@ public class SettingsFragment extends BaseFragment {
                     vietBtn.setVisibility(View.GONE);
                     languageBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.language_icon, 0, R.drawable.right_arrow, 0);
                 }
-
-                engBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        engBtn.setBackgroundResource(R.drawable.language_select);
-                        vietBtn.setBackgroundResource(R.drawable.language_not_select);
-                        setLocal(getActivity(), "en");
-                        Bundle bundle = new Bundle();
-                        bundle.putString("uid", uid);
-                        Toast.makeText(getActivity(), "Language changed into English successfully!", Toast.LENGTH_LONG).show();
-                        NavHostFragment.findNavController(SettingsFragment.this)
-                                .navigate(R.id.action_settingsFragment_to_WelcomeFragment, bundle);                    }
-                });
-
-                vietBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        vietBtn.setBackgroundResource(R.drawable.language_select);
-                        engBtn.setBackgroundResource(R.drawable.language_not_select);
-                        setLocal(getActivity(), "vi");
-                        Bundle bundle = new Bundle();
-                        bundle.putString("uid", uid);
-                        Toast.makeText(getActivity(), "Đổi ngôn ngữ sang tiếng Việt\nthành công!", Toast.LENGTH_LONG).show();
-                        NavHostFragment.findNavController(SettingsFragment.this)
-                                .navigate(R.id.action_settingsFragment_to_WelcomeFragment, bundle);
-                    }
-                });
             }
         });
+        engBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                engBtn.setBackgroundResource(R.drawable.language_select);
+                vietBtn.setBackgroundResource(R.drawable.language_not_select);
+                setLocal(getActivity(), "en");
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                bundle.putString("language", "en");
+                Toast.makeText(getActivity(), "Language changed into English successfully!", Toast.LENGTH_LONG).show();
+                NavHostFragment.findNavController(SettingsFragment.this)
+                        .navigate(R.id.action_settingsFragment_to_SettingsFragment, bundle);                    }
+        });
 
+        vietBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vietBtn.setBackgroundResource(R.drawable.language_select);
+                engBtn.setBackgroundResource(R.drawable.language_not_select);
+                setLocal(getActivity(), "vi");
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                bundle.putString("language", "vi");
+                Toast.makeText(getActivity(), "Đổi ngôn ngữ sang tiếng Việt\nthành công!", Toast.LENGTH_LONG).show();
+                NavHostFragment.findNavController(SettingsFragment.this)
+                        .navigate(R.id.action_settingsFragment_to_SettingsFragment, bundle);
+            }
+        });
         logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -420,10 +439,8 @@ public class SettingsFragment extends BaseFragment {
                         dialog.dismiss();
                         mAuth.signOut();
                         Toast.makeText(getActivity(), "Logged Out!", Toast.LENGTH_LONG).show();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("uid", uid);
                         NavHostFragment.findNavController(SettingsFragment.this)
-                                .navigate(R.id.action_settingsFragment_to_WelcomeFragment, bundle);
+                                .navigate(R.id.action_settingsFragment_to_WelcomeFragment);
                     }
                 });
                 dialogView.findViewById(R.id.buttonCancel).setOnClickListener(new View.OnClickListener() {
@@ -438,6 +455,17 @@ public class SettingsFragment extends BaseFragment {
                 dialog.show();
             }
         });
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", uid);
+                NavHostFragment.findNavController(SettingsFragment.this)
+                        .navigate(R.id.action_settingsFragment_to_homepageFragment, bundle);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback (callback);
 
         BottomNavigationView bottomNavigationView = binding.bottomNavigation;
         bottomNavigationView.setSelectedItemId(R.id.setting_button);
@@ -489,8 +517,10 @@ public class SettingsFragment extends BaseFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE) {
-            Uri selectedImageUri = data.getData();
-            avatarBtn.setImageURI(selectedImageUri);
+            if (data != null) {
+                Uri selectedImageUri = data.getData();
+                avatarBtn.setImageURI(selectedImageUri);
+            }
         }
     }
 }
