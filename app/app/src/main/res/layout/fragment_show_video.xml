@@ -64,5 +64,63 @@
             android:fontFamily="@font/tt_hoves_bold"
             android:layout_below="@id/top"
             />
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/videoTitle"            >
+    <androidx.cardview.widget.CardView
+            android:id="@+id/authorCard"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="25dp"
+            app:cardBackgroundColor="@color/white">
 
+        <androidx.cardview.widget.CardView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="25dp"
+                android:layout_gravity="center">
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/authorAva"
+                    android:src="@drawable/ava"
+                    android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/manrope_bold"
+            android:layout_toEndOf="@id/authorCard"
+            android:text="@string/irrigation_amount_time_title"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <Button
+            android:layout_width="280dp"
+            android:layout_height="70dp"
+            android:id="@+id/toYoutube"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_green"
+            app:backgroundTint="@null"
+            android:letterSpacing="-0.001"
+            android:fontFamily="@font/montserrat_bld"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="@string/watch_video"
+            />
 </RelativeLayout>
