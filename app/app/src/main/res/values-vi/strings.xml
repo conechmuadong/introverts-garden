@@ -152,4 +152,5 @@
     <string name="confirm_new_pwd">Xác nhận mật khẩu mới:</string>
     <string name="old_pwd">Mật khẩu hiện tại</string>
     <string name="new_pwd">Mật khẩu mới</string>
+    <string name="watch_video">Xem trên Youtube</string>
 </resources>

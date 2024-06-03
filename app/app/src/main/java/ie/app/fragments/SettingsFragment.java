@@ -52,6 +52,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 
 public class SettingsFragment extends BaseFragment {
     private FragmentSettingsBinding binding;
@@ -480,8 +483,11 @@ public class SettingsFragment extends BaseFragment {
         locale.setDefault(locale);
         Resources resources = activity.getResources();
         Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        config.locale = locale;
+        resources.updateConfiguration(config, displayMetrics);
+        // restart currently loaded activity
+        activity.recreate();
     }
 
     public void imageChooser() {
