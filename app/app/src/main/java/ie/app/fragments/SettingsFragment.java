@@ -32,7 +32,6 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import ie.app.R;
 import ie.app.databinding.FragmentSettingsBinding;
-import ie.app.databinding.FragmentSignUpBinding;
 import ie.app.models.User;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -53,7 +52,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 
 public class SettingsFragment extends BaseFragment {
     private FragmentSettingsBinding binding;
@@ -117,37 +115,11 @@ public class SettingsFragment extends BaseFragment {
         });
 
         tvUsername = getActivity().findViewById(R.id.username);
+
         nameRef = FirebaseDatabase.getInstance().getReference("users")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         // display username
-        nameRef.child("name").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // if user signs in with google, display name
-                if (snapshot.exists()) {
-                    isSignInWithGoogle = true;
-                    username = snapshot.getValue(String.class);
-                    tvUsername.setText(username);
-                } else {
-                    // if user signs in with email, display email
-                    nameRef.child("email").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            username = snapshot.getValue(String.class);
-                            tvUsername.setText(username);
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    });
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+        displayUsername();
 
         tvUsername.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -397,6 +369,7 @@ public class SettingsFragment extends BaseFragment {
                 }
             }
         });
+
         engBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -408,7 +381,9 @@ public class SettingsFragment extends BaseFragment {
                 bundle.putString("language", "en");
                 Toast.makeText(getActivity(), "Language changed into English successfully!", Toast.LENGTH_LONG).show();
                 NavHostFragment.findNavController(SettingsFragment.this)
-                        .navigate(R.id.action_settingsFragment_to_SettingsFragment, bundle);                    }
+                        .navigate(R.id.action_settingsFragment_to_SettingsFragment, bundle);
+                displayUsername();
+            }
         });
 
         vietBtn.setOnClickListener(new View.OnClickListener() {
@@ -423,8 +398,10 @@ public class SettingsFragment extends BaseFragment {
                 Toast.makeText(getActivity(), "Đổi ngôn ngữ sang tiếng Việt\nthành công!", Toast.LENGTH_LONG).show();
                 NavHostFragment.findNavController(SettingsFragment.this)
                         .navigate(R.id.action_settingsFragment_to_SettingsFragment, bundle);
+                displayUsername();
             }
         });
+
         logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -522,5 +499,36 @@ public class SettingsFragment extends BaseFragment {
                 avatarBtn.setImageURI(selectedImageUri);
             }
         }
+    }
+
+    private void displayUsername() {
+        nameRef.child("name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // if user signs in with google, display name
+                if (snapshot.exists()) {
+                    isSignInWithGoogle = true;
+                    username = snapshot.getValue(String.class);
+                    tvUsername.setText(username);
+                } else {
+                    // if user signs in with email, display email
+                    nameRef.child("email").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            username = snapshot.getValue(String.class);
+                            tvUsername.setText(username);
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
