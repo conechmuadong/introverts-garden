@@ -157,6 +157,42 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(callback);
+        binding.tip1.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("uid", uid);
+                        bundle.putString("Tip chosen", "Tip 1");
+                        NavHostFragment.findNavController(HomepageFragment.this)
+                                .navigate(R.id.action_homepageFragment_to_videoShowFragment, bundle);
+                    }
+                }
+        );
+        binding.tip2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("uid", uid);
+                        bundle.putString("Tip chosen", "Tip 2");
+                        NavHostFragment.findNavController(HomepageFragment.this)
+                                .navigate(R.id.action_homepageFragment_to_videoShowFragment, bundle);
+                    }
+                }
+        );
+        binding.tip3.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("uid", uid);
+                        bundle.putString("Tip chosen", "Tip 3");
+                        NavHostFragment.findNavController(HomepageFragment.this)
+                                .navigate(R.id.action_homepageFragment_to_videoShowFragment, bundle);
+                    }
+                }
+        );
     }
 
     @Override
