@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="action_FieldlistFragment_to_AddNewFieldFragment" type="id" />
+    <item name="action_SettingsFragment_self" type="id"/>
 </resources>
