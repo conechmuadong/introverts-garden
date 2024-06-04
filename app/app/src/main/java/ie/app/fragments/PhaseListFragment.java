@@ -94,12 +94,13 @@ public class PhaseListFragment extends BaseFragment {
             public void onClick(View v) {
                 for (int i = 0; i < field.customizedParameter.getFieldCapacity().size(); i++) {
                     Phase temp = (Phase) listView.getItemAtPosition(i);
-//                    FirebaseAPI.addPhase(String.valueOf(temp.threshHold),
-//                            temp.startTime, temp.endTime,
-//                            "user", field.getName(), i + 1);
+                    FirebaseAPI.addPhase(String.valueOf(temp.threshHold),
+                            temp.startTime, temp.endTime,
+                            "user/" + uid + "/fields", field.getName(), i + 1);
                     Log.e(String.valueOf(i), String.valueOf(temp.threshHold) +
                             temp.startTime + temp.endTime);
                 }
+                Toast.makeText(getContext(), "Updated successfully!", Toast.LENGTH_SHORT).show();
             }
         });
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {

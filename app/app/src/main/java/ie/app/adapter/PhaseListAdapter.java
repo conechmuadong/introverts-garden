@@ -2,6 +2,8 @@ package ie.app.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -61,6 +63,22 @@ public class PhaseListAdapter extends ArrayAdapter<Phase> {
 
         TextView stageStartDate = convertView.findViewById(R.id.stageStartDate);
         stageStartDate.setText(phase.startTime);
+        stageStartDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                phase.startTime = stageStartDate.getText().toString();
+            }
+        });
 
         TextView stageEndDate = convertView.findViewById(R.id.stageEndDate);
         stageEndDate.setText(phase.endTime);

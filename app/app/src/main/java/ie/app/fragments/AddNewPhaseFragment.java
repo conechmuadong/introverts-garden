@@ -43,6 +43,7 @@ public class AddNewPhaseFragment extends BaseFragment {
         binding = FragmentAddNewPhaseBinding.inflate(inflater, container, false);
         super.onCreateView();
         doneBtn = binding.addPhaseButton;
+        binding.stageName.setText("phase" + String.format("%d", field.customizedParameter.getFieldCapacity().size() + 1));
         return binding.getRoot();
     }
 
@@ -65,7 +66,7 @@ public class AddNewPhaseFragment extends BaseFragment {
                     field.customizedParameter.getFieldCapacity().add(x);
                     FirebaseAPI.addPhase(binding.humidEditText.getText().toString(),
                             binding.startDateEditText.getText().toString(),
-                            binding.endDateEditText.getText().toString(), "users/"+uid+"fields", field.getName(), num);
+                            binding.endDateEditText.getText().toString(), "users/"+uid+"/fields", field.getName(), num);
                     Bundle bundle = new Bundle();
                     bundle.putString("uid", uid);
                     NavHostFragment.findNavController(AddNewPhaseFragment.this)
