@@ -190,6 +190,9 @@ public class SignUpFragment extends Fragment {
                         if (mAuth.getCurrentUser() != null) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                             View dialogView = getLayoutInflater().inflate(R.layout.dialog_verify, null);
+
+                            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                            builder.setCancelable(false);
                             builder.setView(dialogView);
                             AlertDialog dialog = builder.create();
                             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

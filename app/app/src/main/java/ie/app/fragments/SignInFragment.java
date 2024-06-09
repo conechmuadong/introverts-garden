@@ -50,7 +50,6 @@ import org.jetbrains.annotations.Nullable;
 public class SignInFragment extends Fragment {
     private FragmentSignInBinding binding;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase database;
     private EditText edtUsername, edtPassword;
     private TextView tvswitchToSignUp, tvforgotPassword;
     private GoogleSignInClient googleSignInClient;
@@ -122,6 +121,9 @@ public class SignInFragment extends Fragment {
                 View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot, null);
                 EditText emailBox = dialogView.findViewById(R.id.emailBox);
 //                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builder.setCancelable(false);
 
                 builder.setView(dialogView);
                 AlertDialog dialog = builder.create();
@@ -296,6 +298,9 @@ public class SignInFragment extends Fragment {
                             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                             View dialogView = getLayoutInflater().inflate(R.layout.dialog_reverify, null);
                             TextView tvresendVerificationLink = dialogView.findViewById(R.id.resendVerificationLink);
+
+                            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                            builder.setCancelable(false);
 
                             builder.setView(dialogView);
                             AlertDialog dialog = builder.create();

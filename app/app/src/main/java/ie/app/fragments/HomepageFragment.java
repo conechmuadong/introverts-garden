@@ -151,7 +151,7 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
                     getActivity().finish();
                 }
                 else {
-                    Toast.makeText(getContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Press back again to exit.", Toast.LENGTH_SHORT).show();
                     exitPressedOnce = true;
                 }
             }
@@ -264,7 +264,7 @@ public class HomepageFragment extends BaseFragment implements AdapterView.OnItem
         protected void onCancelled() {
             super.onCancelled();
             dialog.dismiss();
-            Toast.makeText(getContext(), "An error occurred while getting data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "An error occurred while getting data.", Toast.LENGTH_SHORT).show();
             Log.e("AsyncTask", "An error occurred while getting data");
         }
     }

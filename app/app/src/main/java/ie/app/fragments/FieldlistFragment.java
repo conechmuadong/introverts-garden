@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -151,25 +152,31 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
 
     private void confirmAlert(Field field) {
         builder = new AlertDialog.Builder(this.getContext());
-        builder.setTitle("XÁC NHẬN?");
-        builder.setMessage("Bạn có chắc muốn xoá " + field.getName().toUpperCase() + " không?");
-
         // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
         builder.setCancelable(false);
 
-        builder.setNegativeButton("Không", (DialogInterface.OnClickListener) (dialog, which) -> {
-            // If user click no then dialog box is canceled.
-            dialog.cancel();
-        });
-
-        builder.setPositiveButton("Có", (DialogInterface.OnClickListener) (dialog, which) -> {
-            FirebaseAPI.deleteField("users/" + uid +"/fields/", field.getName());
-            new GetAllTask(getContext()).execute("users/"+uid+"/fields");
-        });
-
-        // Create the Alert dialog
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_delete, null);
+        builder.setView(dialogView);
         alertDialog = builder.create();
-        // Show the Alert Dialog box
+
+        dialogView.findViewById(R.id.buttonOK).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAPI.deleteField("users/" + uid +"/fields/", field.getName());
+                new GetAllTask(getContext()).execute("users/"+uid+"/fields");
+                Toast.makeText(getActivity(), "Deleted successfully!", Toast.LENGTH_LONG).show();
+                alertDialog.dismiss();
+            }
+        });
+        dialogView.findViewById(R.id.buttonCancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+        if (alertDialog.getWindow() != null) {
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
         alertDialog.show();
     }
 
@@ -185,7 +192,7 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
         protected void onPreExecute() {
             super.onPreExecute();
             this.dialog = new ProgressDialog(context, 1);
-            this.dialog.setMessage("Đang lấy dữ liệu");
+            this.dialog.setMessage("Getting data...");
             this.dialog.show();
         }
 
@@ -220,7 +227,7 @@ public class FieldlistFragment extends BaseFragment implements AdapterView.OnIte
         protected void onCancelled() {
             super.onCancelled();
             dialog.dismiss();
-            Toast.makeText(getContext(), "An error occurred while getting data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "An error occurred while getting data.", Toast.LENGTH_SHORT).show();
             Log.e("AsyncTask", "An error occurred while getting data");
         }
     }

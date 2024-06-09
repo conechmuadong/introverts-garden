@@ -56,7 +56,7 @@ public class AddNewPhaseFragment extends BaseFragment {
                 if (binding.humidEditText.getText().toString().equals("") ||
                         binding.startDateEditText.getText().toString().equals("") ||
                         binding.endDateEditText.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Cannot be left blank", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Cannot be left blank!", Toast.LENGTH_SHORT).show();
                 } else {
                     Integer num = field.customizedParameter.getFieldCapacity().size() + 1;
                     Phase x = new Phase("phase" + num,

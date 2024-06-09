@@ -134,7 +134,7 @@ public class PhaseListFragment extends BaseFragment {
         protected void onPreExecute() {
             super.onPreExecute();
             this.dialog = new ProgressDialog(context, 1);
-            this.dialog.setMessage("Đang lấy dữ liệu");
+            this.dialog.setMessage("Getting data...");
             this.dialog.show();
         }
 
