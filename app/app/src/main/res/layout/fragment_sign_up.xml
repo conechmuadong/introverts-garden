@@ -13,9 +13,28 @@
         android:id="@+id/topPanel"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@drawable/topsignup"
-        android:orientation="vertical"
-        />
+        android:background="@drawable/topplant"
+        android:orientation="vertical" >
+        <ImageView
+            android:id="@+id/sign"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/sign" >
+        </ImageView>
+        <TextView
+            android:id="@+id/signUpTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sign_up_title"
+            android:layout_marginTop="10dp"
+            android:textSize="32sp"
+            android:fontFamily="@font/montserrat_bld"
+            android:textColor="@color/white">
+        </TextView>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/edUsername"
@@ -31,6 +50,7 @@
         android:hint="@string/fill_email"
         android:fontFamily="@font/montserrat"
         android:padding="10dp"
+        android:drawablePadding="5dp"
         android:singleLine="true"
         android:textColor="#000000" />
 
@@ -48,6 +68,7 @@
         android:hint="@string/sign_in_password"
         android:fontFamily="@font/montserrat"
         android:padding="10dp"
+        android:drawablePadding="5dp"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/visability"
         android:paddingStart="10dp"
@@ -81,6 +102,7 @@
         android:hint="@string/sign_in_password"
         android:fontFamily="@font/montserrat"
         android:padding="10dp"
+        android:drawablePadding="5dp"
         android:inputType="textPassword"
         android:drawableEnd="@drawable/visability"
         android:paddingStart="10dp"

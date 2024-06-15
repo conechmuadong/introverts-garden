@@ -103,7 +103,7 @@
     <fragment
         android:id="@+id/listPhase"
         android:name="ie.app.fragments.PhaseListFragment"
-        android:label="@string/phaseList_fragment_label"
+        android:label="@string/phaseList_fragment_label_en"
         tools:layout="@layout/fragment_phase_list">
         <action
             android:id="@+id/action_listPhase_to_addNewPhaseFragment"

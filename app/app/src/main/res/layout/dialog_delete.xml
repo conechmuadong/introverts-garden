@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    android:id="@+id/dialogDelete"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogBox"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/notibox" >
+
+        <TextView
+            android:id="@+id/deleteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:fontFamily="@font/montserrat_bld"
+            android:textAlignment="center"
+            android:padding="20dp"
+            android:textSize="20sp"
+            android:background="@drawable/small_button_green"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/confirmDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/deleteTitle"
+            app:layout_constraintTop_toBottomOf="@id/deleteTitle"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/delete_confirm"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_white"
+            app:backgroundTint="@null"
+            android:text="@string/cancel"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:letterSpacing="-0.001"
+            app:cornerRadius="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmDelete"
+            app:layout_constraintEnd_toStartOf="@id/buttonOK"
+            app:layout_constraintBottom_toBottomOf="@id/dialogBox"/>
+
+        <Button
+            android:id="@+id/buttonOK"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/small_button_green"
+            app:backgroundTint="@null"
+            android:text="@string/ok"
+            android:textAlignment="center"
+            android:fontFamily="@font/montserrat_bld"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:letterSpacing="-0.001"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/confirmDelete"
+            app:layout_constraintStart_toEndOf="@id/buttonCancel"
+            app:layout_constraintBottom_toBottomOf="@id/dialogBox"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

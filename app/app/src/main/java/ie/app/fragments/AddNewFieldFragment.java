@@ -62,7 +62,7 @@ public class AddNewFieldFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (addNewFieldEditText.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Không được để trống!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Name cannot be left blank!", Toast.LENGTH_SHORT).show();
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("selectedFieldName",addNewFieldEditText.getText().toString());

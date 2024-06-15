@@ -8,7 +8,6 @@
     <string name="measureddata_fragment_label">Tình trạng</string>
     <string name="irrigation_fragment_label">Cài đặt tưới</string>
     <string name="customized_fragment_label">Điều chỉnh</string>
-    <string name="phaseList_fragment_label">Các giai đoạn</string>
     <string name="phaseList_fragment_label_en">Phases</string>
 
     <string name="Logo">Logo</string>
@@ -70,7 +69,7 @@
     <string name="sign_in_mark_account">Email Address</string>
     <string name="sign_in_acc_eg">extroverts@gmail.com</string>
     <string name="fill_email">Enter your email address...</string>
-    <string name="enter_email">Enter your email address:</string>
+    <string name="enter_email">Your email address:</string>
     <string name="verify_email">Check your email for verification link!</string>
     <string name="verify_check">Please verify your email!</string>
     <string name="receive_verification_question">Didn\'t receive any link?</string>
@@ -140,17 +139,19 @@
     <string name="sign_up_title">Sign Up</string>
     <string name="change_pwd">Change Password</string>
     <string name="change_username_title">Change Your Username</string>
-    <string name="change_username">Enter your new username:</string>
+    <string name="change_username">Your new username</string>
     <string name="username">Username</string>
     <string name="language">Language</string>
     <string name="logout">Log Out</string>
     <string name="logout_confirm">Are you sure you want\nto log out?</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete_confirm">Are you sure you want to\ndelete this garden?</string>
     <string name="forgot_password_title">Forgot Password</string>
     <string name="email_verification">Email Verification</string>
     <string name="verify_email_title">Verify Your Email</string>
-    <string name="enter_old_pwd">Enter your current password:</string>
-    <string name="enter_new_pwd">Enter your new password:</string>
-    <string name="confirm_new_pwd">Confirm your new password:</string>
+    <string name="enter_old_pwd">Current password</string>
+    <string name="enter_new_pwd">New password</string>
+    <string name="confirm_new_pwd">New password confirmation</string>
     <string name="old_pwd">Current Password</string>
     <string name="new_pwd">New Password</string>
     <string name="watch_video">Watch on Youtube</string>

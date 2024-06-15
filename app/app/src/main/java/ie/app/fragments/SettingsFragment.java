@@ -131,6 +131,9 @@ public class SettingsFragment extends BaseFragment {
                 View dialogView = getLayoutInflater().inflate(R.layout.dialog_changename, null);
                 edtName = dialogView.findViewById(R.id.usernameBox);
 
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builder.setCancelable(false);
+
                 builder.setView(dialogView);
                 AlertDialog dialog = builder.create();
 
@@ -178,6 +181,9 @@ public class SettingsFragment extends BaseFragment {
                 edtOldPwd = dialogView.findViewById(R.id.oldPwdBox);
                 edtNewPwd = dialogView.findViewById(R.id.newPwdBox);
                 edtNewPwdCf = dialogView.findViewById(R.id.confirmNewPwdBox);
+
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builder.setCancelable(false);
 
                 builder.setView(dialogView);
                 AlertDialog dialog = builder.create();
@@ -410,6 +416,9 @@ public class SettingsFragment extends BaseFragment {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 View dialogView = getLayoutInflater().inflate(R.layout.dialog_logout, null);
+
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builder.setCancelable(false);
 
                 builder.setView(dialogView);
                 AlertDialog dialog = builder.create();

@@ -104,5 +104,5 @@
                 android:fontFamily="@font/bold_montserrat"
                 app:layout_constraintTop_toBottomOf="@+id/newFieldEditText"
                 android:text="@string/cancel"/>
-    </LinearLayout>s
+    </LinearLayout>
 </RelativeLayout>
