@@ -71,7 +71,8 @@ public class PhaseListAdapter extends ArrayAdapter<Phase> {
 
             @Override
             public void afterTextChanged(Editable s) {
-                phase.threshHold = Float.parseFloat(stageEditHumid.getText().toString());
+                if (!stageEditHumid.getText().toString().isEmpty())
+                    phase.threshHold = Float.parseFloat(stageEditHumid.getText().toString());
             }
         });
 
