@@ -9,10 +9,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.TextView;
+import android.view.inputmethod.EditorInfo;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 
@@ -58,10 +56,26 @@ public class PhaseListAdapter extends ArrayAdapter<Phase> {
         TextView stageName = convertView.findViewById(R.id.stageName);
         stageName.setText(phase.getName());
 
-        TextView stageEditHumid = convertView.findViewById(R.id.stageHumidEdit);
+        EditText stageEditHumid = convertView.findViewById(R.id.stageHumidEdit);
         stageEditHumid.setText(String.format("%.2f",phase.threshHold));
+        stageEditHumid.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        TextView stageStartDate = convertView.findViewById(R.id.stageStartDate);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                phase.threshHold = Float.parseFloat(stageEditHumid.getText().toString());
+            }
+        });
+
+        EditText stageStartDate = convertView.findViewById(R.id.stageStartDate);
         stageStartDate.setText(phase.startTime);
         stageStartDate.addTextChangedListener(new TextWatcher() {
             @Override
@@ -80,8 +94,24 @@ public class PhaseListAdapter extends ArrayAdapter<Phase> {
             }
         });
 
-        TextView stageEndDate = convertView.findViewById(R.id.stageEndDate);
+        EditText stageEndDate = convertView.findViewById(R.id.stageEndDate);
         stageEndDate.setText(phase.endTime);
+        stageEndDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                phase.endTime = stageEndDate.getText().toString();
+            }
+        });
 
         return convertView;
     }
